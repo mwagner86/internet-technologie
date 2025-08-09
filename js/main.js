@@ -1,0 +1,1 @@
+console.log('Die Website-Struktur wurde erfolgreich geladen!');
