@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loadHTML('footer-placeholder', '_footer.html');
     loadHTML('about-content-placeholder', '_about-content.html');
     loadHTML('projects-gallery-placeholder', '_projects-gallery.html');
+    loadHTML('certificates-gallery-placeholder', '_certificates-gallery.html');
 
 });
 
