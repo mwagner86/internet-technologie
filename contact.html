@@ -3,36 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt</title>
+    <meta name="description" content="Kontaktseite und Impressum des Portfolios von [Dein Name].">
+
+    <title>Kontakt - [Dein Name]</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Startseite</a>
-            <a href="about.html">Über uns</a>
-            <a href="contact.html">Kontakt</a>
-        </nav>
-    </header>
 
-    <main>
-        <h1>Kontaktiere uns</h1>
-        <p>Fülle das Formular aus, um uns eine Nachricht zu senden.</p>
-        <form>
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name"><br><br>
-            <label for="email">E-Mail:</label><br>
-            <input type="email" id="email" name="email"><br><br>
-            <label for="message">Nachricht:</label><br>
-            <textarea id="message" name="message"></textarea><br><br>
-            <button type="submit">Senden</button>
+<header id="header-placeholder" class="main-header"></header>
+
+<main>
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2>Kontakt</h2>
+            <p>Ich freue mich über deine Nachricht.</p>
+        </div>
+
+        <form id="contact-form" action="https://formspree.io/f/DEINE_EINZIGARTIGE_ID" method="POST">
+            <div class="form-group">
+                <label for="name">Dein Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Deine E-Mail:</label>
+                <input type="email" id="email" name="_replyto" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Deine Nachricht:</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="button">Nachricht senden</button>
         </form>
-    </main>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 Internet-Technologie Projekt</p>
-    </footer>
+    <section id="impressum" class="impressum-section">
+        <div class="section-header">
+            <h2>Impressum</h2>
+        </div>
+        <p>
+            [Dein Name]<br>
+            [Deine Straße und Hausnummer]<br>
+            [Deine PLZ und Stadt]<br><br>
+            <strong>Kontakt:</strong><br>
+            E-Mail: [Deine E-Mail-Adresse]
+        </p>
+    </section>
+</main>
 
-    <script src="js/main.js"></script>
+<footer id="footer-placeholder" class="main-footer-content"></footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>
