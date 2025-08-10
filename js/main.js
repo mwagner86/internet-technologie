@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loadHTML('header-placeholder', '_header.html');
     loadHTML('footer-placeholder', '_footer.html');
     loadHTML('about-content-placeholder', '_about-content.html');
-    loadHTML('projects-grid-placeholder', '_projects-grid.html');
+    loadHTML('projects-gallery-placeholder', '_projects-gallery.html');
 
 });
 
