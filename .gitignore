@@ -1,0 +1,17 @@
+# IntelliJ IDEA spezifische Dateien
+.idea/
+*.iml
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Abhängigkeiten
+/dist/
+/build/
