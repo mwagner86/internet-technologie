@@ -1,15 +1,15 @@
 /* ============================================= */
-/* 1. GLOBALE STILE & VARIABLEN                  */
+/* 1. GLOBALS & VARIABLES                        */
 /* ============================================= */
 
 :root {
-    /* Farben */
+    /* Colors */
     --color-background: #1a1a1a;
     --color-text: #f0f0f0;
     --color-primary: #00ddb3;
     --color-secondary: #333333;
 
-    /* Typografie */
+    /* Typography */
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
@@ -44,17 +44,17 @@ a {
 
 
 /* ============================================= */
-/* 2. LAYOUT & STRUKTUR                          */
+/* 2. LAYOUT & STRUCTURE                         */
 /* ============================================= */
 
-/* Basis-Layout für alle Inhalts-Sektionen */
+/* General Section Layout */
 section {
     padding: 5rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Kopfbereich einer Sektion (Titel + Untertitel) */
+/* Section Header (Title + Subtitle) */
 .section-header {
     text-align: center;
     margin-bottom: 3rem;
@@ -70,39 +70,31 @@ section {
     color: #a0a0a0;
 }
 
-/* Container für längere Textblöcke */
-.content-block {
-    max-width: 800px;
-    margin: 2rem auto 0 auto;
-    text-align: left;
+/* Grids for Cards */
+.project-grid,
+.certificate-grid,
+.navigation-grid {
+    display: grid;
+    gap: 2rem;
 }
 
-.content-block p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    color: #d0d0d0;
+.project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
-.content-block h3 {
-    font-size: 1.8rem;
+.certificate-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-bottom: 3rem;
+}
+
+.navigation-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     margin-top: 3rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--color-primary);
-    padding-bottom: 0.5rem;
-}
-
-.content-block ul {
-    list-style-position: inside;
-    padding-left: 1rem;
-}
-
-.content-block li {
-    margin-bottom: 0.5rem;
 }
 
 
 /* ============================================= */
-/* 3. KOMPONENTEN (Wiederverwendbare Elemente)   */
+/* 3. REUSABLE COMPONENTS                        */
 /* ============================================= */
 
 /* --- Header & Navigation --- */
@@ -174,38 +166,64 @@ section {
     color: var(--color-background);
 }
 
-/* --- Projekt-Karten --- */
-.project-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block; /* Stellt sicher, dass der Link den gesamten Raum einnimmt */
-    height: 100%;
-}
-
-.project-card {
+/* --- Cards (Project, Certificate, Navigation) --- */
+.project-card,
+.certificate-card,
+.nav-card {
     background-color: var(--color-secondary);
     border: 1px solid #444;
     border-radius: 8px;
     padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
+}
+
+.project-card-link,
+.nav-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.project-card,
+.nav-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover,
+.nav-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-card:hover {
+    border-color: var(--color-primary);
+}
+
+.project-card {
     display: flex;
     flex-direction: column;
 }
 
-.project-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.project-card h3 {
+.project-card h3,
+.nav-card h3 {
     color: var(--color-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.8rem;
 }
 
 .project-description {
     margin-bottom: 1rem;
-    flex-grow: 1; /* Lässt Beschreibung wachsen, um Höhe anzugleichen */
+    flex-grow: 1; /* Aligns card content vertically */
+}
+
+.nav-card {
+    padding: 2rem;
+    text-align: center;
+}
+
+.nav-card p {
+    color: #a0a0a0;
 }
 
 .tech-stack {
@@ -223,12 +241,7 @@ section {
     border-radius: 4px;
 }
 
-/* --- Zertifikat-Karten --- */
 .certificate-card {
-    background-color: var(--color-secondary);
-    border: 1px solid #444;
-    border-radius: 8px;
-    padding: 1.5rem;
     text-align: center;
 }
 
@@ -264,10 +277,10 @@ section {
 
 
 /* ============================================= */
-/* 4. SEITEN-SPEZIFISCHE STILE                   */
+/* 4. PAGE-SPECIFIC STYLES                       */
 /* ============================================= */
 
-/* --- Hero Section (Startseite) --- */
+/* --- Hero Section (Homepage) --- */
 .hero-section {
     min-height: 90vh;
     display: flex;
@@ -278,7 +291,7 @@ section {
 }
 
 .hero-content h1 {
-    font-size: clamp(2.5rem, 5vw, 4.5rem); /* Responsive Schriftgröße */
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     margin-bottom: 1rem;
 }
 
@@ -296,33 +309,10 @@ section {
     flex-wrap: wrap;
 }
 
-/* --- Grids (Projekte & Zertifikate) --- */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-}
-
-.certificate-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-}
-
-.roadmap-title {
-    margin-top: 4rem;
-    border-top: 1px solid #444;
-    padding-top: 4rem;
-}
-
-/* ============================================= */
-/* 5. SPEZIFISCHE LAYOUTS (About-Seite)          */
-/* ============================================= */
-
+/* --- About Page Layout --- */
 .about-layout {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Verhältnis 1:2 zwischen Bild und Text */
+    grid-template-columns: 1fr 2fr;
     align-items: center;
     gap: 3rem;
     margin-top: 3rem;
@@ -330,78 +320,48 @@ section {
 
 .about-image img {
     max-width: 100%;
-    border-radius: 50%; /* Macht das Bild rund */
+    border-radius: 50%;
     border: 5px solid var(--color-secondary);
-    box-shadow: 0 0 20px rgba(0, 221, 179, 0.2); /* Leichter Schein in Akzentfarbe */
+    box-shadow: 0 0 20px rgba(0, 221, 179, 0.2);
 }
 
-/* Anpassungen für die Kernkompetenzen im Fließtext */
 .about-text .content-block h3 {
-    border: none; /* Entfernt die Linie unter der H3, die hier nicht passt */
+    border: none;
     margin-top: 1rem;
 }
 
-/* Responsiveness: Auf kleinen Bildschirmen die Spalten untereinander anordnen */
-@media (max-width: 768px) {
-    .about-layout {
-        grid-template-columns: 1fr; /* Nur noch eine Spalte */
-        text-align: center;
-    }
-
-    .about-image {
-        margin-bottom: 2rem;
-        max-width: 250px; /* Bild nicht zu groß werden lassen */
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .about-text .content-block {
-        text-align: left; /* Text im Block bleibt linksbündig */
-    }
+/* --- Certificates Page --- */
+.roadmap-title {
+    margin-top: 4rem;
+    border-top: 1px solid #444;
+    padding-top: 4rem;
 }
+
+/* --- General Buttons --- */
 .view-all-button-container {
     text-align: center;
     margin-top: 3rem;
 }
 
+
 /* ============================================= */
-/* 5. NAVIGATIONS-KARTEN (Startseite)            */
+/* 5. RESPONSIVE DESIGN                          */
 /* ============================================= */
 
-.navigation-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
+@media (max-width: 768px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
 
-.nav-card-link {
-    text-decoration: none;
-    color: inherit;
-}
+    .about-image {
+        margin-bottom: 2rem;
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-.nav-card {
-    background-color: var(--color-secondary);
-    border: 1px solid #444;
-    border-radius: 8px;
-    padding: 2rem;
-    text-align: center;
-    height: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.nav-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-color: var(--color-primary);
-}
-
-.nav-card h3 {
-    color: var(--color-primary);
-    margin-bottom: 0.75rem;
-    font-size: 1.8rem;
-}
-
-.nav-card p {
-    color: #a0a0a0;
+    .about-text .content-block {
+        text-align: left;
+    }
 }
