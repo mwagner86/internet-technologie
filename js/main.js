@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
-    // Alle dynamischen HTML-Teile laden
-    loadHTML('header-placeholder', '_header.html');
-    loadHTML('footer-placeholder', '_footer.html');
-    loadHTML('about-content-placeholder', '_about-content.html');
-    loadHTML('projects-gallery-placeholder', '_projects-gallery.html');
-    loadHTML('certificates-gallery-placeholder', '_certificates-gallery.html');
+    // Alle dynamischen HTML-Teile mit den neuen Pfaden laden
+    loadHTML('header-placeholder', '_includes/_header.html');
+    loadHTML('footer-placeholder', '_includes/_footer.html');
+    loadHTML('about-content-placeholder', '_includes/_about-content.html');
+    loadHTML('projects-gallery-placeholder', '_includes/_projects-gallery.html');
+    loadHTML('certificates-gallery-placeholder', '_includes/_certificates-gallery.html');
 
 });
 
