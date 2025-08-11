@@ -365,3 +365,33 @@ section {
         text-align: left;
     }
 }
+
+/* --- Certificate Card Enhancements --- */
+.certificate-card img {
+    height: 80px; /* Einheitliche Höhe für alle Bilder in den Karten */
+    width: 80px;  /* Einheitliche Breite für alle Bilder in den Karten */
+    object-fit: contain; /* Stellt sicher, dass das Bild passt, ohne verzerrt zu werden */
+    border-radius: 50%;
+    border: 2px solid var(--color-secondary);
+}
+
+.certificate-image-stack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.certificate-image-stack img {
+    height: 60px;
+    width: 60px;
+    margin: 0 -5px; /* Erzeugt die Überlappung nur bei gestapelten Bildern */
+    border-radius: 50%;
+    border: 2px solid var(--color-secondary);
+}
+
+.certificate-subtitle {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-top: 0.5rem;
+}
