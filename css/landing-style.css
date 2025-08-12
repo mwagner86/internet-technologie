@@ -1,205 +1,108 @@
-/* --- Globale Variablen & Grund-Styles --- */
 :root {
     --color-background: #1a1a1a;
     --color-text: #f0f0f0;
     --color-primary: #00ddb3;
     --color-secondary: #333333;
+    --color-border: #444;
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+
 body {
     background-color: var(--color-background);
     color: var(--color-text);
     font-family: var(--font-body), sans-serif;
     line-height: 1.6;
-}
-h1, h2, h3, h4 {
-    font-family: var(--font-heading), sans-serif;
-    font-weight: 700;
-    line-height: 1.2;
-}
-a { color: var(--color-primary); text-decoration: none; }
-
-/* --- Layout & Struktur --- */
-section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-.section-header { text-align: center; margin-bottom: 3rem; }
-.section-header h2 { font-size: 2.5rem; color: var(--color-primary); }
-.section-header p { font-size: 1.1rem; color: #a0a0a0; }
-.project-grid, .certificate-grid, .navigation-grid { display: grid; gap: 2rem; }
-.project-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-.certificate-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-bottom: 3rem; }
-.navigation-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 3rem; }
-
-/* --- Komponenten: Header & Navigation --- */
-.main-header {
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    background-color: rgba(26, 26, 26, 0.85);
-    backdrop-filter: blur(10px);
-    z-index: 100;
-    border-bottom: 1px solid #2a2a2a;
-}
-.main-nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 3rem 1rem;
 }
-.main-nav .logo { font-family: var(--font-heading), sans-serif; font-size: 1.5rem; font-weight: 700; }
-.main-nav-links { list-style: none; display: flex; align-items: center; gap: 1.5rem; }
-.main-nav a { position: relative; transition: color 0.3s ease; }
-.main-nav a.active { color: var(--color-primary); font-weight: 700; }
-.main-nav a:not(.button)::after {
-    content: '';
-    position: absolute;
+
+.landing-container {
     width: 100%;
-    height: 2px;
-    background-color: var(--color-primary);
-    bottom: -5px;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease-out;
+    max-width: 1200px;
 }
-.main-nav a:hover::after, .main-nav a.active::after { transform: scaleX(1); transform-origin: bottom left; }
 
-/* --- Komponenten: Buttons --- */
-.button {
-    background-color: var(--color-primary);
-    color: var(--color-background);
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    font-weight: 700;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    display: inline-block;
+.landing-header {
+    text-align: center;
+    margin-bottom: 4rem;
 }
-.button:hover { transform: scale(1.05); }
 
-/* --- Komponenten: Karten --- */
-.project-card, .certificate-card, .nav-card {
+.landing-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+}
+
+.landing-header .subtitle {
+    font-size: 1.2rem;
+    color: #a0a0a0;
+    margin-top: 0.5rem;
+}
+
+.assignments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.assignment-card {
     background-color: var(--color-secondary);
-    border: 1px solid #444;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 1.5rem;
-    height: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.project-card-link, .nav-card-link { text-decoration: none; color: inherit; display: block; height: 100%; }
-:is(.project-card, .nav-card):hover {
-    transform: translateY(-8px);
+
+.assignment-card:hover {
+    transform: translateY(-5px);
     border-color: var(--color-primary);
-    box-shadow: 0 10px 20px rgba(0, 221, 179, 0.1);
-}
-.project-card { display: flex; flex-direction: column; }
-.project-card h3, .nav-card h3 { color: var(--color-primary); margin-bottom: 0.75rem; font-size: 1.8rem; }
-.project-description { margin-bottom: 1rem; flex-grow: 1; }
-.nav-card { padding: 2rem; text-align: center; }
-.nav-card p { color: #a0a0a0; }
-.tech-stack { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.tech-stack li { background-color: #444; color: #ddd; font-size: 0.8rem; padding: 0.3rem 0.6rem; border-radius: 4px; }
-.certificate-card { text-align: center; }
-.certificate-card h4 { color: var(--color-primary); }
-
-/* --- Komponenten: Footer --- */
-.main-footer-content { text-align: center; padding: 2rem; background-color: var(--color-secondary); margin-top: 4rem; }
-.footer-links { margin-bottom: 1rem; }
-.footer-links a { margin: 0 1rem; font-weight: 700; }
-
-/* --- Seitenspezifische Styles --- */
-.hero-section { min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
-.hero-content h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1rem; }
-.hero-content .subtitle { font-size: 1.25rem; color: #a0a0a0; max-width: 600px; margin: 0 auto 2.5rem auto; }
-.about-layout { display: grid; grid-template-columns: 1fr 2fr; align-items: center; gap: 3rem; margin-top: 3rem; }
-.about-image img { max-width: 100%; border-radius: 50%; border: 5px solid var(--color-secondary); box-shadow: 0 0 20px rgba(0, 221, 179, 0.2); }
-.roadmap-title { margin-top: 4rem; border-top: 1px solid #444; padding-top: 4rem; }
-.certificate-card img { height: 80px; width: 80px; object-fit: contain; border-radius: 50%; border: 2px solid var(--color-secondary); }
-.certificate-image-stack { display: flex; justify-content: center; align-items: center; margin-bottom: 1rem; }
-.certificate-image-stack img { height: 60px; width: 60px; margin: 0 -5px; border-radius: 50%; border: 2px solid var(--color-secondary); }
-.certificate-subtitle { font-size: 0.9rem; color: #a0a0a0; margin-top: 0.5rem; }
-
-/* --- Animationen --- */
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.fade-in { opacity: 0; animation-fill-mode: forwards; }
-.fade-in.visible { animation-name: fadeIn; animation-duration: 0.8s; }
-
-
-/* ================================================== */
-/* --- Responsive Design & Mobiles Menü --- */
-/* ================================================== */
-
-.mobile-menu-toggle {
-    display: none; /* Auf Desktops ausblenden */
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1001;
+    box-shadow: 0 8px 15px rgba(0, 221, 179, 0.1);
 }
 
-@media (max-width: 768px) {
-    /* Layout-Anpassungen */
-    .about-layout {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .about-image {
-        margin-bottom: 2rem;
-        max-width: 200px; /* Profilbild etwas kleiner */
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .hero-content h1 {
-        font-size: 2rem; /* Überschrift auf der Startseite anpassen */
-    }
+.assignment-card.placeholder {
+    border-style: dashed;
+    border-color: #555;
+}
 
-    /* Mobiles Menü aktivieren */
-    .mobile-menu-toggle {
-        display: block; /* Hamburger-Icon einblenden */
-        position: relative;
-        width: 30px;
-        height: 22px;
-    }
-    .hamburger-icon,
-    .hamburger-icon::before,
-    .hamburger-icon::after {
-        content: '';
-        position: absolute;
-        width: 30px;
-        height: 3px;
-        background-color: var(--color-text);
-        border-radius: 3px;
-        transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
-    }
-    .hamburger-icon { top: 10px; }
-    .hamburger-icon::before { top: -10px; }
-    .hamburger-icon::after { bottom: -10px; }
+.assignment-card.placeholder:hover {
+    border-color: var(--color-primary);
+}
 
-    /* "X"-Animation für das Hamburger-Icon */
-    .mobile-menu-toggle.is-active .hamburger-icon { background-color: transparent; }
-    .mobile-menu-toggle.is-active .hamburger-icon::before { transform: rotate(45deg); top: 0; }
-    .mobile-menu-toggle.is-active .hamburger-icon::after { transform: rotate(-45deg); bottom: 0; }
+.card-tag {
+    display: inline-block;
+    background-color: var(--color-border);
+    color: #ccc;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
 
-    /* Navigations-Links für mobile Ansicht stylen */
-    .main-nav-links {
-        display: none; /* Standardmäßig ausblenden */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--color-background);
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem 0;
-        gap: 2rem;
-    }
-    .main-nav-links.is-open {
-        display: flex; /* Einblenden, wenn aktiv */
-    }
-    .main-nav-links li .button {
-        width: 80%;
-        text-align: center;
-    }
+.assignment-card.featured .card-tag {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-family: var(--font-heading);
+}
+
+.card-content p {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+}
+
+.landing-footer {
+    text-align: center;
+    margin-top: 4rem;
+    color: #777;
 }
