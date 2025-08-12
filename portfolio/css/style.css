@@ -9,12 +9,20 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+
 body {
     background-color: var(--color-background);
     color: var(--color-text);
     font-family: var(--font-body), sans-serif;
     line-height: 1.6;
+
+    /* --- HINTERGRUNDBILD-STYLES --- */
+    background-image: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.95)), url('../images/background_placeholder.png');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
+
 h1, h2, h3, h4 {
     font-family: var(--font-heading), sans-serif;
     font-weight: 700;
