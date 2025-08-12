@@ -1,0 +1,108 @@
+:root {
+    --color-background: #1a1a1a;
+    --color-text: #f0f0f0;
+    --color-primary: #00ddb3;
+    --color-secondary: #333333;
+    --color-border: #444;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body), sans-serif;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 3rem 1rem;
+}
+
+.landing-container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.landing-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.landing-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+}
+
+.landing-header .subtitle {
+    font-size: 1.2rem;
+    color: #a0a0a0;
+    margin-top: 0.5rem;
+}
+
+.assignments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.assignment-card {
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.assignment-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 15px rgba(0, 221, 179, 0.1);
+}
+
+.assignment-card.placeholder {
+    border-style: dashed;
+    border-color: #555;
+}
+
+.assignment-card.placeholder:hover {
+    border-color: var(--color-primary);
+}
+
+.card-tag {
+    display: inline-block;
+    background-color: var(--color-border);
+    color: #ccc;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.assignment-card.featured .card-tag {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-family: var(--font-heading);
+}
+
+.card-content p {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+}
+
+.landing-footer {
+    text-align: center;
+    margin-top: 4rem;
+    color: #777;
+}
