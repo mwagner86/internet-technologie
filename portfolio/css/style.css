@@ -1,4 +1,22 @@
-/* --- Globale Variablen & Grund-Styles --- */
+/* **************************************************************/
+/*                                                              */
+/* __  __    __        __                                       */
+/* |  \/  |   \ \      / /_ _  __ _ _ __   ___ _ __             */
+/* | |\/| |    \ \ /\ / / _` |/ _` | '_ \ / _ \ '__|            */
+/* | |  | |_    \ V  V / (_| | (_| | | | |  __/ |               */
+/* |_|  |_(_)    \_/\_/ \__,_|\__, |_| |_|\___|_|               */
+/*                                                              */
+/* Project: Portfolio Website                                   */
+/* File: style.css                                              */
+/* Author: Maximilian Wagner                                    */
+/* Creation date: 2025-08-13                                   */
+/*                                                              */
+/* ************************************************************ */
+
+/* ========================================================================== */
+/* 1. GLOBALE VARIABLEN & GRUND-STYLES                                        */
+/* ========================================================================== */
+
 :root {
     --color-background: #1a1a1a;
     --color-text: #f0f0f0;
@@ -7,8 +25,16 @@
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background-color: var(--color-background);
@@ -16,11 +42,11 @@ body {
     font-family: var(--font-body), sans-serif;
     line-height: 1.6;
 
-    /* --- HINTERGRUNDBILD-STYLES --- */
+    /* Definiert das Hintergrundbild mit einem dunklen Overlay zur besseren Lesbarkeit */
     background-image: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.95)), url('../images/background_placeholder.png');
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Parallax-Effekt */
 }
 
 h1, h2, h3, h4 {
@@ -28,25 +54,58 @@ h1, h2, h3, h4 {
     font-weight: 700;
     line-height: 1.2;
 }
-a { color: var(--color-primary); text-decoration: none; }
 
-/* --- Layout & Struktur --- */
-section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-.section-header { text-align: center; margin-bottom: 3rem; }
-.section-header h2 { font-size: 2.5rem; color: var(--color-primary); }
-.section-header p { font-size: 1.1rem; color: #a0a0a0; }
-.project-grid, .certificate-grid, .navigation-grid { display: grid; gap: 2rem; }
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+
+/* ========================================================================== */
+/* 2. LAYOUT & STRUKTUR                                                       */
+/* ========================================================================== */
+
+/* Allgemeines Layout für Inhalts-Sektionen */
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+}
+.section-header p {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+}
+
+/* Basis-Grid für alle Karten-Layouts */
+.project-grid, .certificate-grid, .navigation-grid {
+    display: grid;
+    gap: 2rem;
+}
 .project-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
 .certificate-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-bottom: 3rem; }
 .navigation-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 3rem; }
 
-/* --- Komponenten: Header & Navigation --- */
+
+/* ========================================================================== */
+/* 3. KOMPONENTEN                                                             */
+/* ========================================================================== */
+
+/* --- Header & Navigation --- */
 .main-header {
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
     background-color: rgba(26, 26, 26, 0.85);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* Milchglas-Effekt */
     z-index: 100;
     border-bottom: 1px solid #2a2a2a;
 }
@@ -57,10 +116,23 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
     max-width: 1200px;
     margin: 0 auto;
 }
-.main-nav .logo { font-family: var(--font-heading), sans-serif; font-size: 1.5rem; font-weight: 700; }
-.main-nav-links { list-style: none; display: flex; align-items: center; gap: 1.5rem; }
-.main-nav a { position: relative; transition: color 0.3s ease; }
-.main-nav a.active { color: var(--color-primary); font-weight: 700; }
+.main-nav .logo {
+    font-family: var(--font-heading), sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.main-nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.main-nav a.active {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* Animierte Unterstreichung für Nav-Links */
 .main-nav a:not(.button)::after {
     content: '';
     position: absolute;
@@ -73,9 +145,12 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
 }
-.main-nav a:hover::after, .main-nav a.active::after { transform: scaleX(1); transform-origin: bottom left; }
+.main-nav a:hover::after, .main-nav a.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
 
-/* --- Komponenten: Buttons --- */
+/* --- Buttons --- */
 .button {
     background-color: var(--color-primary);
     color: var(--color-background);
@@ -85,9 +160,11 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
     transition: transform 0.2s ease, background-color 0.2s ease;
     display: inline-block;
 }
-.button:hover { transform: scale(1.05); }
+.button:hover {
+    transform: scale(1.05);
+}
 
-/* --- Komponenten: Karten --- */
+/* --- Karten (Projekte, Zertifikate etc.) --- */
 .project-card, .certificate-card, .nav-card {
     background-color: var(--color-secondary);
     border: 1px solid #444;
@@ -96,51 +173,155 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
     height: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-.project-card-link, .nav-card-link { text-decoration: none; color: inherit; display: block; height: 100%; }
+.project-card-link, .nav-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
 :is(.project-card, .nav-card):hover {
     transform: translateY(-8px);
     border-color: var(--color-primary);
     box-shadow: 0 10px 20px rgba(0, 221, 179, 0.1);
 }
-.project-card { display: flex; flex-direction: column; }
-.project-card h3, .nav-card h3 { color: var(--color-primary); margin-bottom: 0.75rem; font-size: 1.8rem; }
-.project-description { margin-bottom: 1rem; flex-grow: 1; }
-.nav-card { padding: 2rem; text-align: center; }
-.nav-card p { color: #a0a0a0; }
-.tech-stack { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.tech-stack li { background-color: #444; color: #ddd; font-size: 0.8rem; padding: 0.3rem 0.6rem; border-radius: 4px; }
-.certificate-card { text-align: center; }
-.certificate-card h4 { color: var(--color-primary); }
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+.project-card h3, .nav-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+    font-size: 1.8rem;
+}
+.project-description {
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+.tech-stack {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.tech-stack li {
+    background-color: #444;
+    color: #ddd;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
 
-/* --- Komponenten: Footer --- */
-.main-footer-content { text-align: center; padding: 2rem; background-color: var(--color-secondary); margin-top: 4rem; }
-.footer-links { margin-bottom: 1rem; }
-.footer-links a { margin: 0 1rem; font-weight: 700; }
-
-/* --- Seitenspezifische Styles --- */
-.hero-section { min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
-.hero-content h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1rem; }
-.hero-content .subtitle { font-size: 1.25rem; color: #a0a0a0; max-width: 600px; margin: 0 auto 2.5rem auto; }
-.about-layout { display: grid; grid-template-columns: 1fr 2fr; align-items: center; gap: 3rem; margin-top: 3rem; }
-.about-image img { max-width: 100%; border-radius: 50%; border: 5px solid var(--color-secondary); box-shadow: 0 0 20px rgba(0, 221, 179, 0.2); }
-.roadmap-title { margin-top: 4rem; border-top: 1px solid #444; padding-top: 4rem; }
-.certificate-card img { height: 80px; width: 80px; object-fit: contain; border-radius: 50%; border: 2px solid var(--color-secondary); }
-.certificate-image-stack { display: flex; justify-content: center; align-items: center; margin-bottom: 1rem; }
-.certificate-image-stack img { height: 60px; width: 60px; margin: 0 -5px; border-radius: 50%; border: 2px solid var(--color-secondary); }
-.certificate-subtitle { font-size: 0.9rem; color: #a0a0a0; margin-top: 0.5rem; }
-
-/* --- Animationen --- */
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.fade-in { opacity: 0; animation-fill-mode: forwards; }
-.fade-in.visible { animation-name: fadeIn; animation-duration: 0.8s; }
+/* --- Footer --- */
+.main-footer-content {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--color-secondary);
+    margin-top: 4rem;
+}
+.footer-links {
+    margin-bottom: 1rem;
+}
+.footer-links a {
+    margin: 0 1rem;
+    font-weight: 700;
+}
 
 
-/* ================================================== */
-/* --- Responsive Design & Mobiles Menü --- */
-/* ================================================== */
+/* ========================================================================== */
+/* 4. SEITENSPEZIFISCHE STYLES                                                */
+/* ========================================================================== */
+
+/* Hero-Sektion auf der Startseite */
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    margin-bottom: 1rem;
+}
+.hero-content .subtitle {
+    font-size: 1.25rem;
+    color: #a0a0a0;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+}
+
+/* "Über Mich"-Sektion */
+.about-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+.about-image img {
+    max-width: 100%;
+    border-radius: 50%;
+    border: 5px solid var(--color-secondary);
+    box-shadow: 0 0 20px rgba(0, 221, 179, 0.2);
+}
+
+/* Zertifikate-Seite */
+.roadmap-title {
+    margin-top: 4rem;
+    border-top: 1px solid #444;
+    padding-top: 4rem;
+}
+.certificate-card img {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 2px solid var(--color-secondary);
+}
+.certificate-image-stack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.certificate-image-stack img {
+    height: 60px;
+    width: 60px;
+    margin: 0 -5px;
+}
+.certificate-subtitle {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-top: 0.5rem;
+}
+
+
+/* ========================================================================== */
+/* 5. ANIMATIONEN                                                             */
+/* ========================================================================== */
+
+/* Sanftes Einblenden von Elementen beim Scrollen */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+.fade-in.visible {
+    animation-name: fadeIn;
+    animation-duration: 0.8s;
+}
+
+
+/* ========================================================================== */
+/* 6. RESPONSIVE DESIGN & MOBILES MENÜ                                        */
+/* ========================================================================== */
 
 .mobile-menu-toggle {
-    display: none; /* Auf Desktops ausblenden */
+    display: none; /* Auf Desktops ausgeblendet */
     background: none;
     border: none;
     cursor: pointer;
@@ -148,22 +329,22 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
 }
 
 @media (max-width: 768px) {
-    /* Layout-Anpassungen */
+    /* Generelle Layout-Anpassungen für mobile Geräte */
     .about-layout {
         grid-template-columns: 1fr;
         text-align: center;
     }
     .about-image {
         margin-bottom: 2rem;
-        max-width: 200px; /* Profilbild etwas kleiner */
+        max-width: 200px;
         margin-left: auto;
         margin-right: auto;
     }
     .hero-content h1 {
-        font-size: 2rem; /* Überschrift auf der Startseite anpassen */
+        font-size: 2rem;
     }
 
-    /* Mobiles Menü aktivieren */
+    /* Styles für das Hamburger-Menü */
     .mobile-menu-toggle {
         display: block; /* Hamburger-Icon einblenden */
         position: relative;
@@ -185,14 +366,14 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
     .hamburger-icon::before { top: -10px; }
     .hamburger-icon::after { bottom: -10px; }
 
-    /* "X"-Animation für das Hamburger-Icon */
+    /* "X"-Animation, wenn das Menü aktiv ist */
     .mobile-menu-toggle.is-active .hamburger-icon { background-color: transparent; }
     .mobile-menu-toggle.is-active .hamburger-icon::before { transform: rotate(45deg); top: 0; }
     .mobile-menu-toggle.is-active .hamburger-icon::after { transform: rotate(-45deg); bottom: 0; }
 
-    /* Navigations-Links für mobile Ansicht stylen */
+    /* Das ausklappbare Navigationsmenü */
     .main-nav-links {
-        display: none; /* Standardmäßig ausblenden */
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -204,10 +385,6 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
         gap: 2rem;
     }
     .main-nav-links.is-open {
-        display: flex; /* Einblenden, wenn aktiv */
-    }
-    .main-nav-links li .button {
-        width: 80%;
-        text-align: center;
+        display: flex;
     }
 }
