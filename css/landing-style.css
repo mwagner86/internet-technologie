@@ -1,9 +1,9 @@
 :root {
-    --color-background: #1a1a1a;
+    --color-background: #2c3e50;
     --color-text: #f0f0f0;
     --color-primary: #00ddb3;
-    --color-secondary: #333333;
-    --color-border: #444;
+    --color-secondary-text: #a0a0a0;
+    --color-border: #333333;
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
@@ -15,14 +15,12 @@ body {
     line-height: 1.6;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    padding: 3rem 1rem;
+    padding: 4rem 1.5rem;
 }
 
 .landing-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 800px; /* Schmaler für den Listen-Fokus */
 }
 
 .landing-header {
@@ -31,78 +29,104 @@ body {
 }
 
 .landing-header h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
     color: var(--color-primary);
-    font-family: var(--font-heading);
+    font-family: var(--font-heading), sans-serif;
 }
 
 .landing-header .subtitle {
     font-size: 1.2rem;
-    color: #a0a0a0;
+    color: var(--color-secondary-text);
     margin-top: 0.5rem;
 }
 
-.assignments-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+.assignments-list {
+    display: flex;
+    flex-direction: column;
 }
 
-.assignment-card {
-    background-color: var(--color-secondary);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    padding: 1.5rem;
+.assignment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid var(--color-border);
     text-decoration: none;
     color: var(--color-text);
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-.assignment-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--color-primary);
-    box-shadow: 0 8px 15px rgba(0, 221, 179, 0.1);
+.assignment-item:first-child {
+    border-top: 1px solid var(--color-border);
 }
 
-.assignment-card.placeholder {
-    border-style: dashed;
-    border-color: #555;
+.assignment-item:hover {
+    background-color: rgba(255, 255, 255, 0.03);
 }
 
-.assignment-card.placeholder:hover {
-    border-color: var(--color-primary);
+.item-content h3 {
+    font-family: var(--font-heading), sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
+    transition: color 0.3s ease;
 }
 
-.card-tag {
-    display: inline-block;
-    background-color: var(--color-border);
-    color: #ccc;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-}
-
-.assignment-card.featured .card-tag {
-    background-color: var(--color-primary);
-    color: var(--color-background);
-}
-
-.card-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #fff;
-    font-family: var(--font-heading);
-}
-
-.card-content p {
-    color: #a0a0a0;
+.item-content p {
+    color: var(--color-secondary-text);
     font-size: 0.95rem;
+}
+
+.item-meta {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    padding-left: 1rem; /* Etwas Abstand zum Text links */
+}
+
+.item-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.assignment-item:hover .item-content h3 {
+    color: var(--color-primary);
+}
+
+/* Spezielles Styling für das hervorgehobene Hauptprojekt */
+.assignment-item.featured {
+    border-color: var(--color-primary);
 }
 
 .landing-footer {
     text-align: center;
     margin-top: 4rem;
     color: #777;
+}
+
+/* Anpassung für kleinere Bildschirme */
+@media (max-width: 600px) {
+    .item-content h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- Styling für Logo und E-Mail --- */
+
+.university-logo {
+    max-height: 60px; /* Höhe des Logos anpassen */
+    margin-bottom: 1.5rem;
+}
+
+.footer-email {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--color-secondary-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-email:hover {
+    color: var(--color-primary);
 }
