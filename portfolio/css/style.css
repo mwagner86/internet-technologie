@@ -132,6 +132,10 @@ section {
     font-weight: 700;
 }
 
+.main-nav a {
+    position: relative;
+}
+
 /* Animierte Unterstreichung für Nav-Links */
 .main-nav a:not(.button)::after {
     content: '';
