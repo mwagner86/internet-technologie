@@ -1,5 +1,9 @@
 # Aufgabe 01: Verbindung zum Webserver herstellen
 
+## Abgabe
+- `hello-world.html`
+- `Aufgabe01.md`
+
 ## Abschlussbedingungen
 
 Veröffentlichen Sie ein erstes "hello world" im Internet, indem Sie ein HTML-Dokument per FTP auf einen Webserver laden.
@@ -11,3 +15,8 @@ Veröffentlichen Sie ein erstes "hello world" im Internet, indem Sie ein HTML-Do
 -   Laden Sie das Dokument auf den Webserver hoch.
 -   Rufen Sie den Link im Browser auf.
 -   Kopieren und reichen Sie den Link als Abgabe ein.
+
+
+### Benutzte Software
+- git
+- IntelliJ IDEA

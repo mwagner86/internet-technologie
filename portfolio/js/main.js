@@ -58,11 +58,11 @@ document.addEventListener("DOMContentLoaded", function() {
      * aktuell angezeigten Seite passt.
      */
     const setActiveNavLink = () => {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const currentPage = window.location.pathname.split('/').pop() || 'hello-world.html';
         const navLinks = document.querySelectorAll('.main-nav a');
         navLinks.forEach(link => {
             const linkHref = link.getAttribute('href');
-            if (linkHref === currentPage || (currentPage === 'index.html' && linkHref.startsWith('index.html'))) {
+            if (linkHref === currentPage || (currentPage === 'hello-world.html' && linkHref.startsWith('hello-world.html'))) {
                 link.classList.add('active');
             }
         });
