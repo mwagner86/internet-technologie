@@ -1,0 +1,79 @@
+/* 1. Globale Stile und Hintergrund */
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f4f8; /* Heller blaugrauer Hintergrund */
+    color: #333;
+    margin: 0;
+    padding: 20px; /* Abstand der Karten zum Fensterrand */
+}
+
+/* 2. Hauptcontainer (zentriert das Layout) */
+.container {
+    max-width: 960px; /* Feste maximale Breite für das Layout */
+    margin: 0 auto;   /* Zentriert den Container */
+}
+
+/* 3. Basis-Stil für alle "Karten" */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 24px;
+    margin-bottom: 20px; /* Abstand zwischen den Karten */
+}
+
+/* 4. Bild-Styling */
+.profile-image {
+    max-width: 350px; /* Begrenzt die Bildgröße */
+    height: auto;
+}
+
+/* 5. Spalten-Layout für die mittlere Karte */
+.content-wrapper {
+    display: flex;
+    gap: 30px;     /* Abstand zwischen den Spalten */
+}
+
+.main-content {
+    flex: 2; /* Linke Spalte nimmt 2/3 der Breite */
+}
+
+.sidebar {
+    flex: 1; /* Rechte Spalte nimmt 1/3 der Breite */
+}
+
+/* 6. Tabellen-Styling (ersetzt border="1") */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f9f9f9;
+}
+
+/* 7. Footer-Layout */
+.footer-content {
+    display: flex;
+    align-items: center; /* Vertikal zentrieren */
+    gap: 20px;
+}
+
+/* 8. Styling für die verschachtelte Skill-Liste */
+.sidebar ul ul {
+    list-style-type: circle; /* Ändert die Bullets zu Kreisen */
+    margin-top: 5px;         /* Kleiner Abstand nach oben */
+    padding-left: 20px;      /* Einrückung der Unterpunkte */
+}
+
+.footer-logo {
+    width: 200px;
+    height: auto;
+}
