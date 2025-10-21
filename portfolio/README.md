@@ -6,10 +6,8 @@ Dieses Projekt ist das persönliche Web-Portfolio von Maximilian Wagner, Student
 
 ## 1. Konzept & Vision
 
-Die Webseite dient als professionelle digitale Visitenkarte. Sie präsentiert nicht nur meine Fähigkeiten und Projekte, sondern demonstriert auch meine Spezialisierung im Bereich der IT-Sicherheit und meine Kompetenz in der modernen Webentwicklung.
+Die Webseite dient als professionelle digitale Visitenkarte.
 
-* **Leitidee: "Präzision & Vertrauen"**
-  Das Design ist bewusst klar, strukturiert und technisch auf den Punkt gebracht. Es spiegelt die analytische und präzise Arbeitsweise wider, die in der IT-Sicherheit entscheidend ist. Ein Dark-Mode-First-Ansatz schont die Augen und rückt Inhalte wie Code-Beispiele und Zertifikate in den Fokus.
 
 * **Farb- und Schriftkonzept**
 	* **Farbpalette:** Ein professioneller Dark-Mode mit `#1a1a1a` (Hintergrund), `#f0f0f0` (Text) und `#00ddb3` (Akzentfarbe).
@@ -36,8 +34,7 @@ Die Seite ist als klassische **Multi-Page-Application (MPA)** aufgebaut, um eine
 * **`index.html` (Startseite):** Dient als zentraler Hub. Sie enthält eine kurze "Über Mich"-Sektion und fungiert als Wegweiser zu den spezialisierten Unterseiten.
 * **`projects.html`**: Präsentiert eine vollständige Galerie aller wichtigen Projekte.
 * **`certificates.html`**: Listet alle erworbenen und angestrebten IT-Zertifikate auf.
-* **`contact.html`**: Enthält das Kontaktformular (realisiert über den externen Dienst **Formspree**) und das Impressum.
-
+* **`contact.html`**: Enthält das Kontaktformular. Muss noch Überarbeitet werden.
 ---
 
 ## 4. Checkliste der Bewertungskriterien
@@ -45,11 +42,11 @@ Die Seite ist als klassische **Multi-Page-Application (MPA)** aufgebaut, um eine
 -   [x] **Responsiveness:** Durch Mobile-First-Ansatz und Flexbox/Grid sichergestellt.
 -   [x] **Struktur & Optik:** Modernes, klares Konzept mit einheitlichem Design.
 -   [x] **Echte Inhalte:** Eigene Projekte, Zertifikate und Texte werden verwendet.
--   [x] **Angemessene Technologie:** Die Wahl von Vanilla JS für einen modularen Aufbau ist für eine statische Seite ideal und zeigt Verständnis für das DRY-Prinzip.
+-   [x] **Angemessene Technologie:** Vanilla JS, html und css.
 -   [x] **Readme:** Diese Datei dient als ausführliche Dokumentation.
 -   [x] **Hosting:** Die Seite läuft auf einem eigenen Webserver via Docker.
 -   [x] **Handgeschriebener Code:** Der Anteil liegt bei weit über 50%.
 -   [x] **Code-Struktur:** Logische Ordner- und Dateistruktur.
 -   [x] **Performance:** Optimierte Assets und schlanker Code garantieren schnelle Ladezeiten.
 -   [x] **Favicon:** Umfassend implementiert für alle gängigen Plattformen.
--   [x] **3 Sections & Detailseite:** Anforderungen durch die Multi-Page-Struktur mehr als erfüllt.
+-   [x] **3 Sections & Detailseite:** Anforderungen durch die Multi-Page-Struktur.
