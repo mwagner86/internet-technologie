@@ -24,6 +24,7 @@ body {
 
 /* 4. Bild-Styling */
 .profile-image {
+    width: 100%;
     max-width: 350px;
     height: auto;
 }
@@ -76,4 +77,29 @@ th {
 .footer-logo {
     width: 200px;
     height: auto;
+}
+
+/* ========================================
+   Responsive Design (Media Queries)
+========================================
+*/
+
+/* Breakpoint für Tablets und kleinere Geräte (z.B. 768px und darunter) */
+@media (max-width: 768px) {
+
+    /* 1. Haupt-Inhaltsspalten stapeln */
+    .content-wrapper {
+        flex-direction: column; /* Ändert die Flex-Richtung von 'row' (nebeneinander) zu 'column' (übereinander) */
+    }
+
+    /* 2. Footer-Elemente stapeln */
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start; /* Richtet die gestapelten Elemente linksbündig aus */
+    }
+
+    /* 3. Globalen Abstand auf kleinen Bildschirmen reduzieren */
+    body {
+        padding: 10px;
+    }
 }
