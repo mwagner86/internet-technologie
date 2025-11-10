@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Webvisitenkarte von Maximilian Wagner, erstellt im Rahmen des Moduls Internet-Technologie.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Webvisitenkarte - Maximilian Wagner</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navigation</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#service">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../index.html">Projekte</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#kontakt">Kontakt</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Suchen" aria-label="Suchen">
+                <button class="btn btn-outline-success" type="submit">Suchen</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<main class="main-wrapper">
+
+    <header class="card">
+        <h1>Maximilian Wagner</h1>
+        <img src="images/profilbild.jpg" alt="Ein professionelles Foto von Maximilian Wagner" class="profile-image">
+    </header>
+
+    <section class="card content-wrapper">
+
+        <div class="main-content">
+            <h2>Über mich</h2>
+            <p>
+                Gebürtiger Ostwestfale und seit 2 Jahren Bewohner des beschaulichen Städtchens Wolfenbüttel.<br>
+                Als Student der IT-Sicherheit an der Technischen Hochschule Brandenburg und praktizierender Softwareentwickler bewege ich mich an der spannenden Schnittstelle zwischen Code und Sicherheit.
+                Meine Leidenschaft gilt der Entwicklung robuster, sicherer Systeme und dem Verständnis, wie man diese vor externen Bedrohungen schützt.
+            </p>
+            <p>
+                Seit diesem Jahr bin ich Teil des Information-Security Teams bei PowerCo.
+                Meine Schwerpunkte sind der Erwerb eines fundierten, breiten Wissens in der Cybersecurity,
+                sowie der Aufbau einer Infrastruktur für automatisierte Penetrationstests.
+            </p>
+
+            <h2>Lieblingsfächer an der THB</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Fach</th>
+                    <th>Schwerpunkt</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Unix-basierte Betriebssysteme</td>
+                    <td>Shell-Skipte & Systemnahe Programmierung</td>
+                </tr>
+                <tr>
+                    <td>English for Computer Scientists</td>
+                    <td>Scope and impact of the digital transformation process</td>
+                </tr>
+                <tr>
+                    <td>Netzwerksicherheit</td>
+                    <td>Angewandte IT-Sicherheit</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <aside class="sidebar" id="service">
+            <h2>Meine fachlichen Skills</h2>
+            <ul>
+                <li>Programmiersprachen
+                    <ul>
+                        <li>C, C++</li>
+                        <li>Python</li>
+                        <li>Java</li>
+                    </ul>
+                </li>
+                <li>Web-Technologien
+                    <ul>
+                        <li>HTML, CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </li>
+                <li>IT-Sicherheit
+                    <ul>
+                        <li>SIEM</li>
+                        <li>Netzwerkanalyse</li>
+                        <li>Penetrationstests</li>
+                    </ul>
+                </li>
+                <li>Cloud
+                    <ul>
+                        <li>Azure</li>
+                        <li>AWS</li>
+                    </ul>
+                </li>
+                <li>Betriebssysteme &amp; Systemnahe Programmierung</li>
+            </ul>
+        </aside>
+
+    </section>
+
+    <footer class="card footer-content" id="kontakt">
+
+        <img src="images/Technische_Hochschule_Brandenburg_Logo.png" alt="Logo der Technischen Hochschule Brandenburg" class="footer-logo">
+
+        <p>
+            Technische Hochschule Brandenburg Maximilian Wagner <a href="mailto:maximilian.wagner@th-brandenburg.de">E-Mail senden</a>
+        </p>
+
+    </footer>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
