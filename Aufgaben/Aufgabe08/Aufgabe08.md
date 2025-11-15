@@ -14,27 +14,20 @@ In diesem Teil gibt es drei Teilaufgaben:
 	-   Verändern Sie das HTML so, dass bei einem Klick auf Ihr Porträtfoto die Lightbox aufgeht.
 
 ## Changelog
+Zusammenfassung der Modifikationen (Aufgabe 06 zu 08).
 
-### 1. Dynamischer Copyright-Hinweis (Aufg 8.1)
+### 1. JavaScript (`js/main.js`)
 
-* **JavaScript (`js/main.js`):**
-	* Der `alert()` aus Aufgabe 06 wurde entfernt.
-	* Eine neue Funktion `createCopyrightNotice` wurde implementiert. Diese Funktion ermittelt das aktuelle Jahr (`new Date().getFullYear()`), erzeugt ein neues `<p>`-Element und fügt es dynamisch in den Footer (`#kontakt`) ein.
-* **CSS (`css/style.css`):**
-	* Die neue ID `#copyright-notice` wurde hinzugefügt, um den Hinweis mittels `margin-left: auto` rechtsbündig im Footer zu positionieren.
+* **Aufgabe 06 (Alert):** Die `alert()`-Funktionalität wurde entfernt.
+* **Aufgabe 8.1 (Copyright):** Eine Funktion `createCopyrightNotice` wurde hinzugefügt. Diese ermittelt das aktuelle Jahr (`new Date().getFullYear()`), erstellt einen Text-String (mit "🍺"-Emoji) und fügt diesen dynamisch als neues `<p>`-Element (`#copyright-notice`) in den Footer (`#kontakt`) ein.
+* **Aufgabe 8.2 (Event-Listener):** Eine Funktion `addHeadlineClickListener` wurde hinzugefügt. Diese selektiert alle `<h1>`- und `<h2>`-Überschriften (`querySelectorAll`) und fügt einen `click`-Event-Listener hinzu, der die Schriftfarbe bei Klick ändert.
 
-### 2. Event-Listener für Überschrift (Aufg 8.2)
+### 2. HTML (`index.html`)
 
-* **HTML (`index.html`):**
-	* Die `<h1>`-Überschrift hat die ID `main-headline` erhalten, um sie per JavaScript selektieren zu können.
-* **JavaScript (`js/main.js`):**
-	* Eine neue Funktion `addHeadlineClickListener` fügt der ID `main-headline` einen `click`-Event-Listener hinzu.
-	* Bei einem Klick wird die `style.color`-Eigenschaft der Überschrift geändert.
+* **Aufgabe 8.3 (Lightbox):** Ein `<script>`-Tag zum Laden der `fslightbox.js`-Bibliothek wurde (vor `main.js`) hinzugefügt.
+* **Aufgabe 8.3 (Lightbox):** Das Profilbild (`.profile-image`) wurde in einen `<a>`-Tag mit dem Attribut `data-fslightbox` gewrappt, um die Lightbox-Funktionalität zu aktivieren.
 
-### 3. Lightbox-Integration (Aufg 8.3)
+### 3. CSS (`style.css`)
 
-* **HTML (`index.html`):**
-	* Die Lightbox-Bibliothek (`fslightbox.js`) wird über ein `<script>`-Tag am Ende des `<body>` geladen.
-	* Das Profilbild (`.profile-image`) wurde in einen `<a>`-Tag gewrappt, der das Attribut `data-fslightbox` enthält, um die Lightbox-Funktionalität zu aktivieren.
-* **CSS (`css/style.css`):**
-	* Ein `:hover`-Zustand für `a[data-fslightbox] .profile-image` wurde hinzugefügt, um die Klickbarkeit durch Änderung von `cursor` und `opacity` zu visualisieren.
+* **Aufgabe 8.1 (Copyright):** Die Regel `.footer-content` wurde um `flex-wrap: wrap` erweitert. Eine neue Regel `#copyright-notice` wurde hinzugefügt, um den Text über die volle Breite (`width: 100%`) und zentriert (`text-align: center`) darzustellen.
+* **Aufgabe 8.3 (Lightbox):** CSS-Regeln für `.profile-image` (transition) und `a[data-fslightbox] .profile-image:hover` (cursor, opacity) wurden hinzugefügt, um die Interaktivität des Bildes zu visualisieren.

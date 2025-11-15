@@ -128,18 +128,12 @@ th {
     color: #6c757d;
 }
 
-/* ========================================
-   Anpassungen für fslightbox
-========================================
-*/
-
-/* 1. Overlay */
-.fslightbox-bg {
-    background-color: rgba(0, 0, 0, 0.95) !important;
+/* 2. Hover-Effekt für das Lightbox-Bild */
+.profile-image {
+    transition: opacity 0.2s ease-in-out;
 }
 
-/* 2. Bildgröße */
-.fslightbox-slide-img {
-    max-width: 50vw;
-    max-height: 65vh;
+a[data-fslightbox] .profile-image:hover {
+    cursor: pointer;
+    opacity: 0.8; /* Leichter Fade-Effekt beim Hovern */
 }
