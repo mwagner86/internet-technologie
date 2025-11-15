@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f6f8fa;
+    color: #24292e;
+    margin: 0;
+    padding: 0;
+}
+
+#markdown-content {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5da;
+    border-radius: 6px;
+}
+
+/* Überschriften */
+h1, h2 {
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: .3em;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+/* Links */
+a {
+    color: #0366d6;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Code */
+code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: .85em;
+    background-color: #f6f8fa;
+    padding: .2em .4em;
+    border-radius: 3px;
+}
+
+pre {
+    background-color: #f6f8fa;
+    padding: 16px;
+    overflow: auto;
+    border-radius: 3px;
+}
+
+pre code {
+    padding: 0;
+}
+
+/* Listen */
+ul {
+    padding-left: 20px;
+}
