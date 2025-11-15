@@ -1,7 +1,7 @@
 # Konzept: Digitales Portfolio (Maximilian Wagner)
 
 Hallo Frau Prof. Schnitzer, Hallo Herr Kodalle.
-Ich hatte ja schon die Gelegenheit, Frau Schnitzer vorab am Ende einer unserer Sprechstunde, ein Preview des Abschlussprojekt vorzuzeigen.
+Ich hatte ja schon die Gelegenheit, Frau Schnitzer vorab am Ende einer unserer Sprechstunden, ein Preview des Abschlussprojektes vorzuzeigen.
 Den aktuellen Stand, sowie Ordner- und Codestruktur, können Sie auf [Github Portfolio Page](https://github.com/mwagner86/internet-technologie/tree/main/portfolio)
 einsehen.
 
@@ -44,19 +44,19 @@ Der "Umfang" (Seitenstruktur) ist wie folgt definiert:
 ## 4. Technologieeinsatz mit Begründung
 
 ### 4.1. Kerntechnologien
-Der Fokus liegt auf handgeschriebenem, sauberem Code, um die fundamentalen Fähigkeiten zu demonstrieren, ohne auf große Frontend-Frameworks (wie React oder Vue) zurückzugreifen.
+Der Fokus liegt auf handgeschriebenem, sauberem Code, um meine Fähigkeiten zu demonstrieren, ohne auf große Frontend-Frameworks (wie React oder Vue) zurückzugreifen. Mein Fokus liegt nicht auf Frontend Design, ein Grundverständnis von DOM Manipulation und JavaScript ist aber natürlich auch in der IT-Sicherheit ein wichtiger Skill.
 
 * **HTML5 & CSS3:** Semantische HTML-Tags und modernes CSS (Flexbox, Grid) bilden die Grundlage für ein responsives und zugängliches Layout.
-* **Vanilla JavaScript (Client-seitige Inklusion):** Um Code-Redundanz zu vermeiden (DRY-Prinzip), wird ein modulares System verwendet. Wiederkehrende HTML-Blöcke (Header, Footer, etc.) sind in separate Dateien im `_includes`-Ordner ausgelagert. Ein zentrales JavaScript (`js/main.js`) lädt diese Blöcke dynamisch zur Laufzeit mit der `fetch`-API in die Haupt-HTML-Seiten.
-	* **Begründung:** Diese Methode simuliert die Arbeitsweise eines statischen Seitengenerators (SSG) wie Jekyll oder Hugo mit reinen Bordmitteln und demonstriert Verständnis für asynchrone Operationen (`fetch`) und DOM-Manipulation.
+* **Vanilla JavaScript (Client-seitige Inklusion):** Um Code-Redundanz zu vermeiden (DRY-Prinzip), verwende ich ein modulares System. Wiederkehrende HTML-Blöcke (Header, Footer, etc.) sind in separate Dateien im `_includes`-Ordner ausgelagert. Ein zentrales JavaScript (`js/main.js`) lädt diese Blöcke dynamisch zur Laufzeit mit der `fetch`-API in die Haupt-HTML-Seiten.
+	* **Begründung:** Diese Methode simuliert die Arbeitsweise eines statischen Seitengenerators (SSG) wie Jekyll oder Hugo mit reinen Bordmitteln. Genutzt werden asynchrone Operationen (`fetch`) und DOM-Manipulation.
 
 ### 4.2. Designkonzept
-* **Farbpalette:** Ein professioneller Dark-Mode mit `#1a1a1a` (Hintergrund), `#f0f0f0` (Text) und `#00ddb3` (Akzentfarbe).
+* **Farbpalette:** Ein augenfreundlicher Dark-Mode mit `#1a1a1a` (Hintergrund), `#f0f0f0` (Text) und `#00ddb3` (Akzentfarbe).
 * **Typografie:** `Poppins` für Überschriften und `Inter` für Fließtext sorgen für ein modernes und gut lesbares Schriftbild.
 
 ### 4.3. Deployment & Infrastruktur
-* **Deployment:** Die Webseite wird von mir während der Entwicklung über einen **Nginx-Container** , der via **Docker Compose** auf meinem privaten Homeserver verwaltet wird, selbst gehostet.
-* **Favicon & App-Manifest:** Eine umfassende Sammlung von Favicons sowie eine `manifest.json` und `browserconfig.xml` stellen eine professionelle Darstellung auf allen Geräten und Plattformen sicher.
+* **Deployment:** Die Webseite wird von mir während der Entwicklung über einen **Nginx-Container**, der via **Docker Compose** auf meinem privaten Homeserver verwaltet wird, selbst gehostet.
+* **Favicon & App-Manifest:** Eine umfassende Sammlung von Favicons sowie eine `manifest.json` und `browserconfig.xml` stellen eine optimierte Darstellung auf allen Geräten und Plattformen sicher.
 
 ---
 
@@ -66,8 +66,8 @@ Als mein primäres Vorbild für ein klares, inhaltsfokussiertes Auftreten diente
 
 * **URL:** [Josh W. Comeau](https://www.joshwcomeau.com/)
 * **Begründung:**
-	1.  **Klarheit & Fokus:** Die Seite konzentriert sich auf die Bereitstellung von qualitativ hochwertigem Inhalt (Blog-Posts, Tutorials). Ein ähnliches Ziel wird mit der Trennung in Projekt- und Zertifikatsseiten verfolgt.
-	2.  **Technisches Understatement:** Die Seite nutzt moderne Technologien (React, MDX), tut dies aber, um das Nutzererlebnis zu verbessern, nicht als reines Gimmick. Da mein Fokus nicht auf Webdesign liegt, sondern eher ein Touchup meiner Basic-Skills sein sollte, habe ich mich für einen schlankeren Technologie-Stack entschieden.
+	1.  **Klarheit & Fokus:** Die Seite konzentriert sich auf die Bereitstellung von qualitativ hochwertigem Inhalt (Blog-Posts, Tutorials).
+	2.  **Technisches Understatement:** Die Seite nutzt moderne Technologien (React, MDX), tut dies aber, um das Nutzererlebnis zu verbessern, nicht als reines Gimmick. Da mein Fokus nicht auf Webdesign liegt, sondern eher ein Touch-Up meiner Basic-Skills sein sollte, habe ich mich für einen schlankeren Technologie-Stack entschieden.
 	3.  **Design:** Das Design ist einzigartig und persönlich, bricht aber nicht mit fundamentalen UX-Prinzipien. Eine technische Seite muss nicht langweilig aussehen. :-)
 
 ---
