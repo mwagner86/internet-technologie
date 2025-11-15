@@ -1,6 +1,8 @@
 # Portfolio-Webseite: Maximilian Wagner
 
-Dieses Projekt ist das persönliche Web-Portfolio von Maximilian Wagner, Student des Studiengangs IT-Sicherheit an der TH Brandenburg und Softwareentwickler. Es wurde im Rahmen des Moduls "Internet-Technologie" erstellt und wird auf einem privaten Homeserver gehostet.
+Dieses Projekt ist das persönliche Web-Portfolio von Maximilian Wagner, Student des Studiengangs IT-Sicherheit an der TH Brandenburg und Softwareentwickler. Es wurde im Rahmen des Moduls "Internet-Technologie" erstellt und wird während der Entwicklungsphase auf einem privaten Homeserver gehostet.
+Nach Abschluss (Ende Winter-Semester 25/26) wird das Projekt auf dem Server der TH Brandenburg veröffentlicht. 
+[Landing Page](https://informatik.th-brandenburg.de/~wagnerm/)
 
 ---
 
