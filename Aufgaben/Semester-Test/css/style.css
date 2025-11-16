@@ -1,0 +1,118 @@
+/*
+ * Semester-Test: Formular-Styling
+ * Dies wird das Haupt-Stylesheet für das Projekt.
+ */
+
+/* 1. Basic Layout (Grayscale) */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+/* 2. Form Groups */
+.input-group {
+    margin-bottom: 1.25rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Important for consistent width */
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.submit-btn:hover {
+    background-color: #333;
+}
+
+/* 3. Validation States (The important part!) */
+
+/* Error message is hidden by default */
+.error-message {
+    font-size: 0.85em;
+    color: #D9534F; /* Red */
+    margin-top: 0.25rem;
+    display: none; /* Will be set to 'block' via JS */
+}
+
+/* Red border and text when the group has an error */
+.input-group.error .error-message {
+    display: block;
+}
+.input-group.error input,
+.input-group.error textarea {
+    border-color: #D9534F;
+}
+
+/* Green border when the group is successfully validated */
+.input-group.success input,
+.input-group.success textarea {
+    border-color: #5CB85C; /* Green */
+}
+
+/* 4. Character Counter */
+.char-counter {
+    font-size: 0.8em;
+    color: #777;
+    margin-top: 0.25rem;
+    text-align: right;
+}
+
+/* Counter error state (when over 200) */
+.char-counter.error {
+    color: #D9534F;
+    font-weight: bold;
+}
+
+/* Footer Styling */
+#form-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee; /* Leichte Trennlinie */
+    width: 100%;
+    text-align: center;
+}
+
+#copyright-notice {
+    font-size: 0.85em;
+    color: #888; /* Dezentes Grau */
+    margin: 0;
+}
