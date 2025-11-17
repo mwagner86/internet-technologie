@@ -73,3 +73,15 @@ Visuelles Feedback wird durch das Hinzufügen/Entfernen der CSS-Klassen `.error`
 
 ### 7. Erfolgreiche Weiterleitung
 * **Check 7:** Wenn alle oben genannten Validierungsfunktionen `true` zurückgeben, wird der Benutzer per `window.location.href` auf `success.html` weitergeleitet.
+
+
+---
+
+### Assets & Lizenzen
+
+* **Video-Hintergrund:** Das "Campfire"-Video wird von [Pixabay](https://pixabay.com/videos/campfire-flames-fire-wood-fire-2170/) bezogen. Es unterliegt der Pixabay-Lizenz (lizenzfrei für die private und kommerzielle Nutzung ohne Namensnennung).
+
+* **Schriftarten:**
+	* `Metal Mania` (Titel): Bezogen von [Google Fonts](https://fonts.google.com/specimen/Metal+Mania).
+	* `Cinzel` (Fließtext): Bezogen von [Google Fonts](https://fonts.google.com/specimen/Cinzel).
+	* Beide Schriftarten sind unter der **Open Font License** lizenziert und frei verwendbar.
