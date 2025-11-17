@@ -1,4 +1,4 @@
-# Semesterbegleitender Test: Validierungs-Formular
+#Semesterbegleitender Test Validierungs-Formular
 
 ## 1. Aufgabenbeschreibung
 
@@ -32,15 +32,9 @@ Folgende 7 Kriterien müssen in Echtzeit oder bei "Submit" validiert werden:
 * **Validierung (20 Punkte):** Implementierung aller 7 Validierungs-Checks.
 
 
-# README: Form Validation Script
-
-Dieses Skript (`js/main.js`) validiert das Registrierungsformular (`index.html`) clientseitig. Es nutzt `DOMContentLoaded` und einen `submit`-Event-Listener, um die Standard-Browser-Validierung zu überschreiben (`event.preventDefault()`).
-
-Visuelles Feedback wird durch das Hinzufügen/Entfernen der CSS-Klassen `.error` und `.success` zu den `.input-group`-Containern gegeben.
-
 ---
 
-## Implementierte Checks
+## 4. Implementierte Checks
 
 ### 1. Name (`validateName`)
 * **Check 1:** Das Feld darf nicht leer sein.
@@ -77,9 +71,26 @@ Visuelles Feedback wird durch das Hinzufügen/Entfernen der CSS-Klassen `.error`
 
 ---
 
+## 5. Thema & Design-Konzept: P&P OneShot
+
+Das Ziel war es, ein standardisiertes HTML-Formular in eine thematisch passende Anmeldeseite für eine "Pen & Paper OneShot"-Runde zu verwandeln. Der visuelle Stil ist stark an klassische ARPGs (Action Role-Playing Games) wie Diablo 2 angelehnt.
+
+### Visuelle Kernelemente
+
+* **Hintergrund:** Ein dynamischer, vollflächiger Video-Hintergrund (`.webm`) eines Lagerfeuers, das in einer Schleife läuft. Ein dunkler Filter (`filter: brightness(0.4)`) sorgt für bessere Lesbarkeit des Vordergrunds.
+* **Typografie:**
+	* **Titel (`Metal Mania`):** Google Font, die an Fantasy-Logos erinnern soll.
+	* **Fließtext (`Cinzel`):** Eine Google Font im Serif-Stil, die wie "gemeißelt" aussieht und den epischen Charakter unterstützen soll.
+* **Formular-Container:** Dient als "UI-Element" im Spiel-Stil. Es ist dunkel, leicht transparent (`rgba(10, 10, 10, 0.85)`) und hat einen geprägten Rand (`border-image`), um sich vom Video abzuheben.
+* **Logo:** Ein Wappen-Logo (Drache) schwebt über dem Formular
+* **Farbpalette:** Ein dunkles Schema (`#0a0a0a`) mit hellen Texten (`#f0f0f0`). Als Akzentfarbe dient ein Gold/Gelb-Ton (`#F8B700`) für den Button und die Überschrift.
+* **Validierung:** Die Feedback-Farben (`.error`/`.success`) wurden an das Theme angepasst (helles Rot `#FF6347` und Mintgrün `#3EB489`), um auf dem dunklen Hintergrund gut sichtbar zu sein.
+* **Thematische Texte:** Alle Labels und Titel wurden angepasst (z.B. "Charaktername" statt "Name", "Gruppe beitreten" statt "Register").
+
+
 ---
 
-### Assets & Lizenzen
+## 6. Assets & Lizenzen
 
 * **Video-Hintergrund:** Das "Campfire"-Video wird von [Pixabay](https://pixabay.com/videos/campfire-flames-fire-wood-fire-2170/) bezogen. Es unterliegt der Pixabay-Lizenz (lizenzfrei für die private und kommerzielle Nutzung ohne Namensnennung).
 
@@ -88,4 +99,4 @@ Visuelles Feedback wird durch das Hinzufügen/Entfernen der CSS-Klassen `.error`
 	* `Cinzel` (Fließtext): Bezogen von [Google Fonts](https://fonts.google.com/specimen/Cinzel).
 	* Beide Schriftarten sind unter der **Open Font License** lizenziert und frei verwendbar.
 
-* **Logo/Icon:** Das "Movie Reel" Icon ist von [Flaticon](https://www.flaticon.com/free-icon/movie_14238696).
+* **Logo/Icon:** Das Drachen "Movie Reel" Icon ist von [Flaticon](https://www.flaticon.com/free-icon/movie_14238696).
