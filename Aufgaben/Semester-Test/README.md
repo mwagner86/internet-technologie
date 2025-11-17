@@ -77,6 +77,8 @@ Visuelles Feedback wird durch das Hinzufügen/Entfernen der CSS-Klassen `.error`
 
 ---
 
+---
+
 ### Assets & Lizenzen
 
 * **Video-Hintergrund:** Das "Campfire"-Video wird von [Pixabay](https://pixabay.com/videos/campfire-flames-fire-wood-fire-2170/) bezogen. Es unterliegt der Pixabay-Lizenz (lizenzfrei für die private und kommerzielle Nutzung ohne Namensnennung).
@@ -85,3 +87,5 @@ Visuelles Feedback wird durch das Hinzufügen/Entfernen der CSS-Klassen `.error`
 	* `Metal Mania` (Titel): Bezogen von [Google Fonts](https://fonts.google.com/specimen/Metal+Mania).
 	* `Cinzel` (Fließtext): Bezogen von [Google Fonts](https://fonts.google.com/specimen/Cinzel).
 	* Beide Schriftarten sind unter der **Open Font License** lizenziert und frei verwendbar.
+
+* **Logo/Icon:** Das "Movie Reel" Icon ist von [Flaticon](https://www.flaticon.com/free-icon/movie_14238696).

@@ -178,3 +178,25 @@ h2 {
     color: #888;
     margin: 0;
 }
+
+/* ========================================
+   10. Logo Styling
+======================================== */
+.logo-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 0;
+}
+
+.guild-logo {
+    max-width: 150px;
+    height: auto;
+
+    filter: invert(1) drop-shadow(0 0 10px rgba(255, 199, 43, 0.9));
+
+    display: block;
+    margin: -70px auto 20px auto;
+    z-index: 10;
+    position: relative;
+}
