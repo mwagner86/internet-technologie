@@ -101,3 +101,8 @@ Das Ziel war es, ein standardisiertes HTML-Formular in eine thematisch passende 
 	* **Lizenz:** Beide Schriftarten unterliegen der **Open Font License (OFL)** und sind frei verwendbar.
 
 * **Logo/Icon:** "Fantasy Reel" Icon von [Flaticon](https://www.flaticon.com/free-icon/movie_14238696). Autor: Freepik.
+
+* **JavaScript-Bibliothek (Lokal):**
+	* `marked.min.js`: Wird verwendet, um diese Dokumentation (`readme.html`) zu rendern.
+	* **Lizenz:** MIT License.
+	* **Quelle:** [Marked.js auf GitHub](https://github.com/markedjs/marked).
