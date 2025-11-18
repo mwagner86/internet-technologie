@@ -1,4 +1,4 @@
-#Semesterbegleitender Test Validierungs-Formular
+# Semesterbegleitender Test Validierungs-Formular für Pen & Paper OneShot
 
 ## 1. Aufgabenbeschreibung
 
@@ -73,7 +73,7 @@ Folgende 7 Kriterien müssen in Echtzeit oder bei "Submit" validiert werden:
 
 ## 5. Thema & Design-Konzept: P&P OneShot
 
-Das Ziel war es, ein standardisiertes HTML-Formular in eine thematisch passende Anmeldeseite für eine "Pen & Paper OneShot"-Runde zu verwandeln. Der visuelle Stil ist stark an klassische ARPGs (Action Role-Playing Games) wie Diablo 2 angelehnt.
+Das Ziel war es, ein standardisiertes HTML-Formular in eine thematisch passende Anmeldeseite für eine "Pen & Paper OneShot"-Runde zu verwandeln. Der visuelle Stil ist an klassische ARPGs (Action Role-Playing Games) wie Diablo 2 angelehnt.
 
 ### Visuelle Kernelemente
 
@@ -94,9 +94,10 @@ Das Ziel war es, ein standardisiertes HTML-Formular in eine thematisch passende 
 
 * **Video-Hintergrund:** Das "Campfire"-Video wird von [Pixabay](https://pixabay.com/videos/campfire-flames-fire-wood-fire-2170/) bezogen. Es unterliegt der Pixabay-Lizenz (lizenzfrei für die private und kommerzielle Nutzung ohne Namensnennung).
 
-* **Schriftarten:**
-	* `Metal Mania` (Titel): Bezogen von [Google Fonts](https://fonts.google.com/specimen/Metal+Mania).
-	* `Cinzel` (Fließtext): Bezogen von [Google Fonts](https://fonts.google.com/specimen/Cinzel).
-	* Beide Schriftarten sind unter der **Open Font License** lizenziert und frei verwendbar.
+* **Schriftarten (Lokal gehostet):**
+	* `Metal Mania` (Titel) und `Cinzel` (Fließtext).
+	* **Quelle:** Heruntergeladen via [google-webfonts-helper](https://gwfh.mranftl.com/fonts).
+	* **Einbindung:** Die Dateien (`.woff2`) liegen lokal im Ordner `assets/fonts/`.
+	* **Lizenz:** Beide Schriftarten unterliegen der **Open Font License (OFL)** und sind frei verwendbar.
 
-* **Logo/Icon:** Das Drachen "Movie Reel" Icon ist von [Flaticon](https://www.flaticon.com/free-icon/movie_14238696).
+* **Logo/Icon:** "Fantasy Reel" Icon von [Flaticon](https://www.flaticon.com/free-icon/movie_14238696). Autor: Freepik.

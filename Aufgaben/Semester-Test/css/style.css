@@ -4,7 +4,35 @@
  */
 
 /* ========================================
-   1. Globale Stile & Schriftarten
+   0. Lokale Schriftarten
+======================================== */
+
+/* Metal Mania (Titel) */
+@font-face {
+    font-family: 'Metal Mania';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/metal-mania-v23-latin-regular.woff2') format('woff2');
+}
+
+/* Cinzel Regular (Text) */
+@font-face {
+    font-family: 'Cinzel';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/cinzel-v26-latin-regular.woff2') format('woff2');
+}
+
+/* Cinzel Bold (Labels) */
+@font-face {
+    font-family: 'Cinzel';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/cinzel-v26-latin-700.woff2') format('woff2');
+}
+
+/* ========================================
+   1. Globale Stile
 ======================================== */
 body {
     font-family: 'Cinzel', serif;
@@ -14,7 +42,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+
+    /* ANPASSUNG: Mehr Padding oben (100px), damit das Logo Platz hat */
+    padding: 100px 20px 20px 20px;
+
     min-height: 100vh;
     box-sizing: border-box;
     margin: 0;

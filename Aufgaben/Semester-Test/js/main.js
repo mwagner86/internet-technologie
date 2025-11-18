@@ -1,13 +1,9 @@
 /*
  * Semesterbegleitender Test: Form Validation Script
- * Clientseitige Validierung für das Registrierungsformular.
- * Erweitert um PoCs von gängiger Security Validierung
- * Maximilian Wagner
+ * Handles all client-side validation checks for the registration form.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-
-    createCopyrightNotice();
 
     // 1. DOM Elements
     const form = document.getElementById('registration-form');
@@ -20,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const charCountElement = document.getElementById('char-count');
 
     // 2. Security Policies
-    const commonPasswords = ['password', '123456', 'qwerty', 'admin', 'passwort'];
-    const reservedNames = ['admin', 'administrator', 'root', 'support', 'info'];
+    const commonPasswords = ['password', '123456', 'qwerty', 'admin', 'passwort', 'hallo', 'meister'];
+    const reservedNames = ['admin', 'administrator', 'root', 'support', 'info', 'dungeonmaster'];
     const disposableDomains = ['mailinator.com', '10minutemail.com', 'tempmail.com'];
     const xssRegex = /[<>]/; // Disallows < and >
 
@@ -40,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 3.2. Check 7: Successful Redirect
         if (isNameValid && isEmailValid && isPasswordValid && isPasswordConfirmValid && isBirthdayValid && isBioValid) {
-            // All checks passed
             window.location.href = 'success.html';
         }
     });
@@ -65,15 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const value = nameInput.value.trim();
 
         if (value === '') {
-            setError(nameInput, 'Name is required.');
+            setError(nameInput, 'Charaktername ist erforderlich.');
             return false;
         }
         if (xssRegex.test(value)) {
-            setError(nameInput, 'Characters < and > are not allowed.');
+            setError(nameInput, 'Die Zeichen < und > sind nicht erlaubt.');
             return false;
         }
         if (reservedNames.includes(value.toLowerCase())) {
-            setError(nameInput, 'This name is reserved.');
+            setError(nameInput, 'Dieser Name ist reserviert.');
             return false;
         }
 
@@ -86,17 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const value = emailInput.value.trim();
 
         if (value === '') {
-            setError(emailInput, 'Email is required.');
+            setError(emailInput, 'E-Mail ist erforderlich.');
             return false;
         }
         if (!isEmail(value)) {
-            setError(emailInput, 'Please enter a valid email address.');
+            setError(emailInput, 'Bitte gib eine gültige E-Mail-Adresse ein.');
             return false;
         }
 
         const domain = value.split('@')[1];
         if (disposableDomains.includes(domain)) {
-            setError(emailInput, 'Disposable email addresses are not allowed.');
+            setError(emailInput, 'Wegwerf-E-Mail-Adressen sind nicht gestattet.');
             return false;
         }
 
@@ -104,34 +99,34 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
-// 5.3. Validate Password (Check 3)
+    // 5.3. Validate Password (Check 3)
     function validatePassword() {
         const value = passwordInput.value.trim();
-        const lowerCaseValue = value.toLowerCase(); // For efficient checking
+        const lowerCaseValue = value.toLowerCase();
 
         if (value === '') {
-            setError(passwordInput, 'Password is required.');
+            setError(passwordInput, 'Passwort ist erforderlich.');
             return false;
         }
         if (value.length < 10) {
-            setError(passwordInput, 'Password must be at least 10 characters long.');
+            setError(passwordInput, 'Das Passwort muss mindestens 10 Zeichen lang sein.');
             return false;
         }
         if (!/[A-Z]/.test(value)) {
-            setError(passwordInput, 'Password must contain at least one uppercase letter.');
+            setError(passwordInput, 'Das Passwort muss mindestens einen Großbuchstaben enthalten.');
             return false;
         }
         if (!/[a-z]/.test(value)) {
-            setError(passwordInput, 'Password must contain at least one lowercase letter.');
+            setError(passwordInput, 'Das Passwort muss mindestens einen Kleinbuchstaben enthalten.');
             return false;
         }
         if (!/[0-9]/.test(value)) {
-            setError(passwordInput, 'Password must contain at least one number.');
+            setError(passwordInput, 'Das Passwort muss mindestens eine Zahl enthalten.');
             return false;
         }
 
         if (commonPasswords.some(commonPass => lowerCaseValue.includes(commonPass))) {
-            setError(passwordInput, 'Password contains a common or weak component (e.g., "password" or "123456").');
+            setError(passwordInput, 'Das Passwort enthält zu einfache Bestandteile (z.B. "password" oder "123456").');
             return false;
         }
 
@@ -145,10 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const confirmValue = passwordConfirmInput.value.trim();
 
         if (confirmValue === '') {
-            setError(passwordConfirmInput, 'Password confirmation is required.');
+            setError(passwordConfirmInput, 'Passwortbestätigung ist erforderlich.');
             return false;
         } else if (passwordValue !== confirmValue) {
-            setError(passwordConfirmInput, 'Passwords do not match.');
+            setError(passwordConfirmInput, 'Die Passwörter stimmen nicht überein.');
             return false;
         }
         setSuccess(passwordConfirmInput);
@@ -159,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function validateBirthday() {
         const value = birthdayInput.value;
         if (value === '') {
-            setError(birthdayInput, 'Birthday is required.');
+            setError(birthdayInput, 'Geburtsdatum ist erforderlich.');
             return false;
         }
 
@@ -167,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const today = new Date();
 
         if (birthDate > today) {
-            setError(birthdayInput, 'Birthday cannot be in the future.');
+            setError(birthdayInput, 'Geburtsdatum darf nicht in der Zukunft liegen.');
             return false;
         }
 
@@ -180,11 +175,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (age < 18) {
-            setError(birthdayInput, 'You must be at least 18 years old.');
+            setError(birthdayInput, 'Du musst mindestens 18 Jahre alt sein, um beizutreten.');
             return false;
         }
         if (age > 120) {
-            setError(birthdayInput, 'Age seems incorrect. Please enter a valid year.');
+            setError(birthdayInput, 'Das Alter scheint ungültig. Bitte prüfe das Jahr.');
             return false;
         }
 
@@ -194,22 +189,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5.6. Validate Bio (Check 5)
     function validateBio() {
-        const value = bioInput.value; // No .trim() to check length accurately
+        const value = bioInput.value;
         const length = value.length;
 
         if (xssRegex.test(value)) {
-            setError(bioInput, 'Characters < and > are not allowed.');
+            setError(bioInput, 'Die Zeichen < und > sind nicht erlaubt.');
             return false;
         }
         if (length > 200) {
-            setError(bioInput, 'Bio must be 200 characters or less.');
+            setError(bioInput, 'Die Bio darf maximal 200 Zeichen lang sein.');
             return false;
         }
 
         setSuccess(bioInput);
         return true;
     }
-
 
     // 6. Helper Functions
     function setError(inputElement, message) {
@@ -234,23 +228,20 @@ document.addEventListener('DOMContentLoaded', () => {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    // 7. Copyright Notice Function
+// 7. Copyright Notice Function
     function createCopyrightNotice() {
-        const footer = document.getElementById('form-footer');
-        if (!footer) {
-            console.error('Footer element (id="form-footer") not found.');
+        const copyrightElement = document.getElementById('copyright-notice');
+
+        if (!copyrightElement) {
+            console.error('Footer element (id="copyright-notice") not found.');
             return;
         }
 
         const currentYear = new Date().getFullYear();
-
-        const copyrightText = `Made with 🍺 © ${currentYear} Maximilian Wagner`;
-
-        const copyrightElement = document.createElement('p');
-        copyrightElement.id = 'copyright-notice'; // Für CSS-Styling
-        copyrightElement.textContent = copyrightText;
-
-        footer.appendChild(copyrightElement);
+        copyrightElement.textContent = `Erstellt mit 🍺 © ${currentYear} Maximilian Wagner`;
     }
+
+    // 8. Initial Function Calls
+    createCopyrightNotice();
 
 });
