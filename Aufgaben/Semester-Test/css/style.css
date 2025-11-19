@@ -1,6 +1,6 @@
 /*
  * Semesterbegleitender Test: Maximilian Wagner
- * (ARPG Theme)
+ * Formular zur Pen & Paper OneShot Anmeldung (ARPG Theme)
  */
 
 /* ========================================
@@ -43,7 +43,6 @@ body {
     justify-content: center;
     align-items: center;
 
-    /* ANPASSUNG: Mehr Padding oben (100px), damit das Logo Platz hat */
     padding: 100px 20px 20px 20px;
 
     min-height: 100vh;

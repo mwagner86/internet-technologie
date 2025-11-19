@@ -1,6 +1,6 @@
 /*
  * Semesterbegleitender Test: Form Validation Script
- * Handles all client-side validation checks for the registration form.
+ * Alle client-side Validations-Checks
  */
 
 document.addEventListener('DOMContentLoaded', () => {

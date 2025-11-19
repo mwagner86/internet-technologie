@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta type="author" content="Micha Kodalle">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Website Portfolio Micha Kodalle</title>
+    <link rel="stylesheet" href="assets/css/main.min.css">
+    <script src="assets/js/main.js" defer type="application/javascript"></script>
+    <script src="assets/js/weather.js" defer type="application/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<style>
+    footer {
+        min-height: 50px;
+        text-align: center;
+    }
+</style>
+<body>
+<main>
+    <!--Überschrift-->
+    <h1>Micha Kodalle</h1>
+    <div id="about-me" class="container">
+        <!--Foto Micha Kodalle-->
+        <a data-fslightbox href="assets/img/Mitarbeiterfotos_THB_220628_020.jpg">
+            <img class="foto" src="assets/img/Foto_Micha_Kodalle.jpg" alt="Foto Micha Kodalle">
+        </a>
+        <!-- Über Mich-->
+        <div>
+            <h2>Über mich</h2>
+
+            <p>Hallo, ich bin Micha.</p>
+            <p>Zurzeit betreue ich den Abendkurs Webprogrammierung.</p>
+            <p>Ansonsten bin ich akademischer Mitarbeiter an der TH Brandenburg.</p>
+        </div>
+    </div>
+    <div id="skills" class="container">
+        <!--Fachlichen Skills-->
+        <h1>Meine fachlichen Skills</h1>
+        <ul>
+            <li>HTML/CSS/JS</li>
+            <li>PHP</li>
+            <li>Java/Kotlin</li>
+            <li>Wordpress-Development</li>
+        </ul>
+    </div>
+    <div id="favorites" class="container">
+        <!--Lieblingsfächer - Tabelle-->
+        <h2>Meine Lieblingsfächer</h2>
+        <table>
+            <thead>
+            <tr>
+                <td>Lieblingsfächer
+                </td>
+                <td>Schwerpunkte</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Lieblingsfach I</td>
+                <td>Schwerpunkt I</td>
+            </tr>
+            <tr>
+                <td>Lieblingsfach II</td>
+                <td>Schwerpunkt II</td>
+            </tr>
+            <tr>
+                <td>Lieblingsfach III</td>
+                <td>Schwerpunkt III</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+<!--Logo der THB -->
+<footer id="footer">
+    <a href="https://www.th-brandenburg.de" title="Technische Hochschule Brandenburg">
+        <img src="assets/img/THB_Logo.svg"
+             alt="Logo der THB">
+    </a>
+    <div id="weather">
+        <div>Aktuelles Wetter in Brandenburg:</div>
+        <div id="weather-temp"></div>
+        <div id="weather-desc"></div>
+    </div>
+</footer>
+
+
+<script src="assets/js/fslightbox/fslightbox.js"></script>
+</body>
+</html>
