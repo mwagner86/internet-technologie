@@ -37,14 +37,14 @@ h2 {
 }
 
 #about-me div > h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; /* Aus main2.css übernommen */
 }
 
-/* Container */
+/* Container (Werte aus main2.css integriert) */
 .container {
-    margin: 1rem 2rem;
+    margin: 3rem 3rem; /* Geändert von 1rem 2rem */
     border: rgba(190, 197, 194, 0.34) solid 1px;
-    padding: 1rem;
+    padding: 5rem;     /* Geändert von 1rem */
 }
 
 /* Tabelle */
@@ -66,10 +66,10 @@ h2 {
 footer {
     min-height: 50px;
     text-align: center;
-    padding: 1rem 0; /* Etwas Innenabstand */
+    padding: 1rem 0;
 }
 
-/* FIX: Logo-Größe begrenzen */
+/* Logo-Größe begrenzen */
 #footer img {
     width: 180px;
     height: auto;
@@ -90,10 +90,16 @@ footer {
     gap: 1em;
 }
 
-/* Responsive Design */
+/* Responsive Design: Smartphone < 576px */
 @media screen and (max-width: 575px) {
     main { margin: 0; }
-    .container { border: 0; }
+
+    .container {
+        border: 0;
+        padding: 1rem;
+        margin: 1rem;
+    }
+
     #about-me { flex-direction: column; }
     .foto { width: 100%; height: auto; margin-bottom: 1em; }
     #about-me div > h2 { margin-bottom: .3em; }
@@ -101,6 +107,11 @@ footer {
     footer { overflow: hidden; position: relative; bottom: 0; }
 }
 
+/* Responsive Design: Smartphone S <= 350px (Aus main2.css) */
 @media screen and (max-width: 350px) {
-    .container { border: 0; margin: 0; }
+    .container {
+        border: 0;
+        margin: 0;
+        padding: 0.5rem; /* Sicherheitshalber Padding auch hier verringern */
+    }
 }

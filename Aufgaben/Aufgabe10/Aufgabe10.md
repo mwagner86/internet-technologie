@@ -49,8 +49,9 @@ Ziel der Überarbeitung war es, Fehler in der Konsole zu beheben, den Code W3C-k
 ### 3. Performance & Optimierung
 * **jQuery entfernt:** Das weather.js Skript wurde komplett auf Vanilla JS (Fetch API) umgeschrieben. Dadurch konnte die Einbindung der jQuery-Bibliothek (ca. 85 KB) entfernt werden, was die Ladezeit signifikant verbessert.
 * **CSS Konsolidierung:**
-	* Die Datei headlines.css wurde aufgelöst und in main.css integriert, um einen HTTP-Request zu sparen.
+	* Die Dateien `headlines.css` und `main2.css` (zusätzliche Styles) wurden aufgelöst und in `main.css` integriert, um HTTP-Requests zu sparen.
 	* Inline-Styles wurden in die CSS-Datei ausgelagert.
+	* Fehlende Größenbeschränkung für das THB-Logo im Footer wurde ergänzt.
 	* Die CSS-Datei wurde bereinigt und zusammengefasst.
 
 ---
