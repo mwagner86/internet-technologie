@@ -80,3 +80,10 @@ Ziel der Überarbeitung war es, Fehler in der Konsole zu beheben, den Code W3C-k
 
 1.  Öffnen Sie die Datei index.html in einem modernen Webbrowser.
 2.  **Hinweis:** Für den Abruf der aktuellen Wetterdaten im Footer ist eine aktive Internetverbindung erforderlich.
+
+
+## Die gefixte Version ist abrufbar unter:
+[index.html](https://informatik.th-brandenburg.de/~wagnerm/Aufgaben/Aufgabe10/index.html)
+
+## Detailliertes Readme unter:
+[README.html](https://informatik.th-brandenburg.de/~wagnerm/Aufgaben/Aufgabe10/readme.html)

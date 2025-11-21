@@ -40,3 +40,9 @@ Installationsanleitung
 HTML-File öffnen.
 
 Abrufbar unter:
+
+Die gefixte Version ist abrufbar unter:
+https://informatik.th-brandenburg.de/~wagnerm/Aufgaben/Aufgabe10/index.html
+
+Detailliertes Readme unter:
+https://informatik.th-brandenburg.de/~wagnerm/Aufgaben/Aufgabe10/readme.html
