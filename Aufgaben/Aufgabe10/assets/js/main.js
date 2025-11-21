@@ -1,48 +1,45 @@
-// Aufruf der Funktionen
-build_copyright();
-change_heading();
+// Aufruf der Funktionen erst wenn DOM geladen (Sicherheit & Performance)
+document.addEventListener('DOMContentLoaded', () => {
+    build_copyright();
+    change_heading();
+});
 
 /**
  * Erzeugt eine Copyright Notice und bindet sie im Footer ein
  */
-function build_copyright(){
-    // Footer suchen und in Variable speichern
-    // byTagName gibt eine Liste zurück - mit [0] bekommen Sie den ersten Eintrag
-    let footer = document.getElementsByTagName("footer")[0];
+function build_copyright() {
+    // Footer suchen (querySelector ist performanter als getElementsByTagName[0])
+    const footer = document.querySelector("footer");
+    const current_year = new Date().getFullYear();
 
-    // Aktuelles Jahr erhalten
-    let current_year = new Date().getFullYear();
+    // Optimierung: Template Literal statt String-Verkettung
+    const copyright_txt = `Made with ❤️ by Micha Kodalle \t © ${current_year}`;
 
-    // Text zusammenbauen
-    let copyright_txt = "Made with ❤️ by Micha Kodalle \t © " + current_year
-
-    // Neues DOM-Element erzeugen
-    let copyright_el = document.createElement('div');
-
-    // Text einsetzen
+    const copyright_el = document.createElement('div');
     copyright_el.innerText = copyright_txt;
-
-    // Zusätzliches CSS einfügen
     copyright_el.classList.add('copyright');
 
-    // In DOM einsetzen
     footer.appendChild(copyright_el);
 }
 
-function change_heading(){
-    // Get heading
-    let skills = document.getElementById('skills');
-    let heading = skills.getElementsByTagName('h2')[0];
+/**
+ * Ändert die Farbe der Skills-Überschrift bei Klick
+ */
+function change_heading() {
+    const skills = document.getElementById('skills');
+    const heading = skills.getElementsByTagName('h2')[0];
 
-    // Save original color for toggling
-    let original_color = heading.style.color;
+    if (!heading) {
+        console.error("Heading im Skills-Bereich nicht gefunden!");
+        return;
+    }
 
-    // Add eventlistener for toggle on click
-    heading.addEventListener('click', () =>{
-        if(heading.style.color === original_color){
+    heading.addEventListener('click', () => {
+        // Minimal-invasiver Toggle: Prüft auf Inline-Style
+        if (heading.style.color === 'red') {
+            heading.style.color = ''; // Zurücksetzen auf CSS-Standard
+        } else {
             heading.style.color = 'red';
-        }else{
-            heading.style.color = original_color;
         }
-    })
+    });
 }

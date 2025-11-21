@@ -1,12 +1,12 @@
 /* Allgemeines */
 body {
-    /* Reset padding & margin */
     margin: 0;
     padding: 0;
     background-color: rgba(221, 252, 255, 0.14);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 main {
@@ -16,11 +16,15 @@ main {
 }
 
 /* Überschriften */
-h1, h2 {
+h1 {
+    text-align: center;
+    font-size: 2.3em;
     color: #F78764;
 }
 
-
+h2 {
+    color: #F78764;
+}
 
 /* Über mich Abschnitt */
 #about-me {
@@ -36,7 +40,7 @@ h1, h2 {
     margin-bottom: 2rem;
 }
 
-/* Container für die einzelnen Abschnitte */
+/* Container */
 .container {
     margin: 1rem 2rem;
     border: rgba(190, 197, 194, 0.34) solid 1px;
@@ -51,65 +55,52 @@ h1, h2 {
     border-spacing: 10px;
 }
 
-#favorites table thead {
+#favorites table th {
     font-weight: bold;
     font-size: 1.2em;
     border-bottom: 2px solid black;
-
+    text-align: left;
 }
 
+/* Footer */
+footer {
+    min-height: 50px;
+    text-align: center;
+    padding: 1rem 0; /* Etwas Innenabstand */
+}
 
+/* FIX: Logo-Größe begrenzen */
+#footer img {
+    width: 180px;
+    height: auto;
+    margin-bottom: 1rem;
+}
 
-.copyright{
+.copyright {
     text-align: center;
     margin-bottom: 1em;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: italic;
 }
 
-#weather{
+/* Wetter */
+#weather {
     display: flex;
     justify-content: center;
     margin-bottom: 1rem;
-}
-#weather span{
-    margin-left: 1em;
+    gap: 1em;
 }
 
-/* Smartphone < 576px */
-@media screen and (max-width: 575px)  {
-    main{
-        margin: 0;
-    }
-
-
-    .container{
-        border: 0;
-    }
-
-    #about-me {
-        flex-direction: column;
-    }
-
-    .foto{
-        width: 100%;
-        height:auto;
-        margin-bottom: 1em;
-    }
-
-    #about-me div > h2{
-        margin-bottom: .3em;
-    }
-
-    #favorites table thead{
-        font-size: 1em;
-    }
-
-   footer{
-       overflow: hidden;
-       position: relative;
-       bottom:0;
-   }
-
+/* Responsive Design */
+@media screen and (max-width: 575px) {
+    main { margin: 0; }
+    .container { border: 0; }
+    #about-me { flex-direction: column; }
+    .foto { width: 100%; height: auto; margin-bottom: 1em; }
+    #about-me div > h2 { margin-bottom: .3em; }
+    #favorites table th { font-size: 1em; }
+    footer { overflow: hidden; position: relative; bottom: 0; }
 }
 
+@media screen and (max-width: 350px) {
+    .container { border: 0; margin: 0; }
+}
