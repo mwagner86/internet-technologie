@@ -53,6 +53,9 @@ Ziel der Überarbeitung war es, Fehler in der Konsole zu beheben, den Code W3C-k
 	* Inline-Styles wurden in die CSS-Datei ausgelagert.
 	* Fehlende Größenbeschränkung für das THB-Logo im Footer wurde ergänzt.
 	* Die CSS-Datei wurde bereinigt und zusammengefasst.
+* **Bildoptimierung:** Das Portrait (`Foto_Micha_Kodalle.jpg`) wurde optimiert.
+	* Ursache: Das Originalbild war für die Webdarstellung zu groß (Dateigröße).
+	* Maßnahme: Kompression mittels **TinyJPG** zur signifikanten Reduktion der Dateigröße bei gleichbleibender visueller Qualität.
 
 ---
 
