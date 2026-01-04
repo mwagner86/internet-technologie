@@ -60,7 +60,13 @@ Das Projekt ist für den Betrieb in einer containerisierten Umgebung optimiert.
 
 ---
 
-## 5. Fremdcode-Verzeichnis
+## 5. Quellen & Assets
 
 Zur Wahrung der Transparenz werden folgende externe Ressourcen genutzt:
+
+### Fremdcode
 * **`marked.min.js`**: Markdown-Parser für die Web-Darstellung der Dokumentation.
+
+### KI-generierte Ressourcen
+* **Zertifikats-Badges**: Die Badges für "TÜV ISO 27001 Officer" und "TÜV ISO 27001 Auditor" in der Roadmap-Sektion wurden mittels KI erstellt.
+* **Hintergrundbild**: Das globale Hintergrundbild (`background_placeholder.png`) wurde mittels KI generiert.
