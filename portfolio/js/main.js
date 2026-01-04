@@ -1,8 +1,15 @@
-/* main.js - Maximilian Wagner */
+/* **************************************************************/
+/*                                                              */
+/* main.js - Maximilian Wagner                                  */
+/*                                                              */
+/* Fremdcode-Verzeichnis:                                       */
+/* - marked.min.js: Markdown-Parser                             */
+/*                                                              */
+/* ************************************************************ */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Intersection Observer für Fade-In Animationen
+    // Initialisiert Scroll-Animationen für Elemente mit .fade-in
     const initializeFadeInAnimation = () => {
         const elements = document.querySelectorAll('.fade-in');
         const observer = new IntersectionObserver((entries, obs) => {
@@ -16,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         elements.forEach(el => observer.observe(el));
     };
 
-    // Lädt HTML-Fragmente in Container
+    // Lädt HTML-Fragmente in spezifizierte Container
     const loadHTML = (id, path, callback) => {
         const el = document.getElementById(id);
         if (el) {
@@ -33,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Markiert aktiven Navigationslink basierend auf URL
+    // Markiert den Navigationslink der aktuellen Seite als aktiv
     const setActiveNavLink = () => {
         const page = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.main-nav a').forEach(link => {
@@ -41,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // Hamburger-Menü Logik
+    // Steuerung des mobilen Navigationsmenüs (Hamburger)
     const initializeMobileMenu = () => {
         const toggle = document.getElementById('mobile-menu-toggle');
         const links = document.getElementById('main-nav-links');
@@ -53,7 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Kontaktformular mit Honeypot, Rate-Limit und XSS-Schutz
+    // Aktualisiert das Copyright-Jahr im Footer dynamisch
+    const updateFooterYear = () => {
+        const yearEl = document.getElementById('current-year');
+        if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+    };
+
+    // Verarbeitet das Kontaktformular inklusive Honeypot und Rate-Limiting
     const initializeContactForm = () => {
         const form = document.getElementById('contact-form');
         if (!form) return;
@@ -61,29 +74,26 @@ document.addEventListener("DOMContentLoaded", () => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const errorEl = document.getElementById('form-error');
-            if (errorEl) errorEl.style.display = 'none';
-
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
-            // Honeypot-Check
+            // Honeypot-Prüfung zur Bot-Abwehr
             if (data.honeypot) return;
 
-            // Rate-Limiting (60s Cooldown)
+            // Client-seitiges Rate-Limiting (60s Sperre)
             const lastSub = localStorage.getItem('last_submission_ts');
             const now = Date.now();
             if (lastSub && (now - parseInt(lastSub) < 60000)) {
                 if (errorEl) {
-                    errorEl.textContent = "Rate limit überschritten. Bitte kurz warten.";
+                    errorEl.textContent = "Rate Limit aktiv. Bitte eine Minute warten.";
                     errorEl.style.display = 'block';
                 }
                 return;
             }
 
-            // Validierung E-Mail-Format
-            const emailValue = String(data.email).trim();
-            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            if (!emailRegex.test(emailValue)) {
+            // Validierung des E-Mail-Formats via Regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(String(data.email))) {
                 if (errorEl) {
                     errorEl.textContent = "Ungültiges E-Mail-Format.";
                     errorEl.style.display = 'block';
@@ -98,46 +108,42 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // XSS-sichere Darstellung der Formulardaten (Success Page)
-    const displaySuccessData = () => {
-        const container = document.getElementById('success-data-display');
-        const raw = localStorage.getItem('contactFormData');
-        if (container && raw) {
-            try {
-                const data = JSON.parse(raw);
-                const pre = document.createElement('pre');
-                pre.style.cssText = "background: #333; padding: 1rem; border-radius: 5px; overflow-x: auto;";
-                // textContent verhindert Script-Injektion (DOM-XSS)
-                pre.textContent = JSON.stringify(data, null, 4);
-                container.appendChild(pre);
-            } catch (e) {
-                console.error("Datenfehler im localStorage.");
-            }
+    // Rendert README.md mittels marked.js in den Dokumentations-Container
+    const renderMarkdown = () => {
+        const container = document.getElementById('markdown-content');
+        const parser = window.marked;
+        if (container && typeof parser !== 'undefined') {
+            fetch('README.md')
+                .then(res => res.text())
+                .then(md => {
+                    container.innerHTML = parser.parse(md);
+                    container.classList.add('visible');
+                })
+                .catch(err => console.error("Markdown-Fehler:", err));
         }
     };
 
-    // Basis-Komponenten laden
+    // Initialisierung der Basis-Komponenten
     loadHTML('header-placeholder', '_includes/_header.html', () => {
         setActiveNavLink();
         initializeMobileMenu();
     });
-    loadHTML('footer-placeholder', '_includes/_footer.html');
 
-    // Inhalts-Komponenten laden
+    loadHTML('footer-placeholder', '_includes/_footer.html', () => {
+        updateFooterYear();
+    });
+
+    // Laden der Inhalts-Fragmente mit Animationen
     loadHTML('about-content-placeholder', '_includes/_about-content.html', initializeFadeInAnimation);
     loadHTML('projects-gallery-placeholder', '_includes/_projects-gallery.html', initializeFadeInAnimation);
     loadHTML('certificates-gallery-placeholder', '_includes/_certificates-gallery.html', initializeFadeInAnimation);
 
-    // Formular-Handling bei Bedarf
+    // Bedingte Initialisierung seitenabhängiger Funktionen
     if (document.getElementById('contact-form-placeholder')) {
-        loadHTML('contact-form-placeholder', '_includes/_contact-form.html', () => {
-            initializeContactForm();
-            const form = document.getElementById('contact-form');
-            if (form) form.classList.add('visible');
-        });
+        loadHTML('contact-form-placeholder', '_includes/_contact-form.html', initializeContactForm);
     }
 
-    if (document.getElementById('success-data-display')) {
-        displaySuccessData();
+    if (document.getElementById('markdown-content')) {
+        renderMarkdown();
     }
 });
