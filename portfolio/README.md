@@ -57,3 +57,11 @@ Das Projekt ist für den Betrieb in containerisierten Umgebungen (Docker/Nginx) 
 * **Image Processing**: Generierung der Bildvarianten mittels ImageMagick:
   `magick convert input -resize 400 -quality 85 output.webp`
 * **Markdown Rendering**: Dynamische Anzeige der Dokumentation über `readme.html` mittels `marked.min.js`.
+
+## KI-Unterstützung & Attribution
+
+Die funktionale Logik des interaktiven Terminals wurde unter Verwendung von **Google Gemini 1.5 Pro** entwickelt.
+
+* **Umfang**: Befehls-Parser, asynchrone Simulation des Sicherheits-Scans und dynamisches DOM-Update.
+* **Review**: Der generierte Code wurde manuell refactored, um die Integration in die modulare Struktur des Portfolios sicherzustellen und die Einhaltung von Sicherheitsstandards (z. B. Vermeidung von `innerHTML`) zu gewährleisten.
+* **Generell**: Es wurde KI Unterstützung zum Erstellen des CSS Styles genutzt. Layout und Seitenstruktur sind Eigenkreation.
