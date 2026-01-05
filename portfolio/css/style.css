@@ -115,23 +115,24 @@ img {
     border-radius: 50%;
 }
 
-/* Basis-Styles für das Profilbild mit Transition */
+/* Angepasste Bild-Optimierung für responsive Profilbilder */
 .about-image img {
     width: 100%;
-    max-width: 400px;
+    height: auto; /* Verhindert Verzerrungen bei Skalierung */
+    max-width: 400px; /* Begrenzung der Desktop-Größe */
+    display: block;
+
+    /* Visuelles Styling */
     border-radius: 50%;
     border: 5px solid var(--color-secondary);
     box-shadow: 0 0 20px rgba(0, 221, 179, 0.2);
     margin: 0 auto;
-    /* NEU: Weiche Übergänge für Filter, Schatten und Rahmen */
     transition: filter 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* NEU: Hover-Effekt für das Profilbild */
+/* Hover-Effekt */
 .about-image a:hover img {
-    /* Macht das Bild 15% heller */
     filter: brightness(1.15);
-    /* Verstärkt den Leucht-Effekt (optional, sieht aber gut aus) */
     box-shadow: 0 0 35px rgba(0, 221, 179, 0.5);
     border-color: var(--color-primary);
     cursor: pointer;
@@ -361,23 +362,48 @@ section {
 /* 6. SEITENSPEZIFISCHE STYLES                                                */
 /* ========================================================================== */
 
+/* Balancierte Hero-Schriftgrößen */
+.hero-content h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-align: center;
+    width: 100%;
+    color: var(--color-text);
+}
+
+.hero-content .subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--color-primary);
+    text-align: center;
+    width: 100%;
+    margin-top: 0.5rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
 .hero-section {
     display: flex;
-    flex-direction: column; /* Erzwingt die vertikale Anordnung */
-    align-items: center;    /* Zentriert Text und Terminal horizontal */
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    min-height: 90vh;       /* Ausreichend Platz für beide Elemente */
-    padding: 6rem 2rem;
     text-align: center;
+    min-height: 90vh;
+    padding: 6rem 2rem 4rem 2rem;
 }
 
 .hero-content {
-    margin-bottom: 3rem;    /* Erzeugt Abstand zwischen Text und Terminal */
+    margin-bottom: 3.5rem; /* Definierter Abstand zum Terminal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #terminal-placeholder {
     width: 100%;
-    max-width: 850px;       /* Begrenzt die Breite des Terminals */
+    max-width: 850px;
     margin: 0 auto;
 }
 
