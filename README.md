@@ -1,28 +1,53 @@
-# Modul-Aufgaben: Internet-Technologie
+# Portfolio-Webseite: Maximilian Wagner
 
-Dieses Repository bündelt alle praktischen Aufgaben und das Abschlussprojekt, die im Rahmen des Moduls "Internet-Technologie" an der Technischen Hochschule Brandenburg erstellt wurden.
+Dieses Projekt ist das persönliche Web-Portfolio von Maximilian Wagner, Student des Studiengangs IT-Sicherheit an der TH Brandenburg und Informationssicherheitsexperte bei der PowerCo SE. Es dient als digitale Visitenkarte und technischer Leistungsnachweis im Bereich Web-Development und Information Security.
 
-## Projektübersicht
+---
 
-Die Startseite (`index.html`) dieses Projekts dient als zentrale **Landing-Page**. Von hier aus können alle einzelnen Aufgaben und das Haupt-Portfolio-Projekt aufgerufen werden.
+## 1. Konzept & Vision
 
-### 1. Digitales Portfolio (Hauptprojekt)
+Die Webseite kombiniert modernes Design mit den Anforderungen an ein professionelles ISMS-Consulting.
 
-Das Kernstück dieses Repositories ist die persönliche Portfolio-Webseite. Sie wurde als Multi-Page-Application (MPA) mit reinem HTML, CSS und Vanilla JavaScript umgesetzt, um fundamentale Web-Kompetenzen zu demonstrieren.
+* **Fokus**: Management von Informationssicherheit (ISO 27001 / TISAX).
+* **Visuelle Assets**: Zentrales Hintergrundbild und spezifische Zertifikats-Badges für ISO-Qualifikationen wurden mittels Künstlicher Intelligenz (KI) generiert.
+* **Design**: Dark-Mode-Konzept mit Fokus auf Lesbarkeit und technischer Ästhetik.
 
-* **Direkter Link:** **[./portfolio/index.html](portfolio/index.html)**
-* **Technologien:** HTML5, CSS3 (Flexbox, Grid, Animationen), Vanilla JavaScript (dynamisches Laden von Inhalten via Fetch API)
-* **Konzept:** Eine professionelle, digitale Visitenkarte mit Fokus auf IT-Sicherheit und Softwareentwicklung.
+---
 
-### 2. Weitere Modul-Aufgaben
+## 2. Technologie-Stack & Features
 
-Die restlichen Karten auf der Landing-Page sind Platzhalter für weitere Aufgaben, die im Laufe des Moduls bearbeitet werden. Jede Aufgabe wird in einem eigenen Unterverzeichnis organisiert oder direkt verlinkt.
+### Kern-Technologien
+* **HTML5 & CSS3**: Semantisches Markup und responsives Layout via Flexbox/Grid.
+* **Vanilla JavaScript**: Modulares System zum dynamischen Laden von HTML-Komponenten (Client-side Includes).
+* **Docker & Nginx**: Containerisierte Bereitstellung für konsistente Deployment-Umgebungen.
 
-## Technische Umsetzung
+### Erweiterte Funktionalitäten
+* **Interaktives Terminal**: Eine JS-basierte Shell-Simulation auf der Startseite zur interaktiven Informationsabfrage (Befehle: help, whoami, iso, tisax etc.).
+* **Lightbox-Integration**: Nutzung von `fslightbox.js` zur vergrößerten Darstellung des Profilbildes und der Zertifikate ohne Seitenwechsel.
+* **Markdown-Reader**: Dynamisches Rendering dieser Dokumentation direkt im Browser mittels `marked.min.js`.
 
-* **Hosting:** Das gesamte Projekt wird zusätzlich zur Veröffentlichung auf dem Webserver der TH Brandenburg während der Entwicklung über Nginx-Webserver in einem Docker-Container auf einem privaten Homeserver bereitgestellt.
-* **Versionierung:** Die Projektentwicklung wird mit Git verwaltet.
+### Security-Implementierung
+* **Honeypot & Rate-Limiting**: Schutz des Kontaktformulars vor automatisiertem Spam.
+* **XSS-Prevention**: String-Sanitization durch konsequente Nutzung der `textContent`-Property.
+* **Privacy**: Lokale Einbindung aller Fonts und Verzicht auf externe Tracking-Skripte.
 
-## Ausführung
+---
 
-Um das Projekt lokal zu betrachten, klonen Sie das Repository und öffnen Sie die `index.html` in einem Webbrowser. Für die volle Funktionalität (wie das dynamische Laden von Inhalten) ist ein lokaler Webserver erforderlich.
+## 3. Projektstruktur
+
+* `_includes/`: Wiederverwendbare HTML-Fragmente (Header, Footer, Content-Module).
+* `css/`: Stylesheets und lokale Schriftarten (Poppins, Inter).
+* `js/`: Anwendungslogik (`main.js`) und Bibliotheken (`marked.min.js`, `fslightbox.js`).
+* `images/`: Bildressourcen, unterteilt in Zertifikate, Projekte und Favicons.
+
+---
+
+## 4. Quellen & Lizenzen
+
+### Drittanbieter-Code
+* **marked.min.js**: Markdown-Parsing.
+* **fslightbox.js**: Lightbox-Funktionalität.
+
+### KI-Generierung
+* Hintergrundbild: `background_placeholder.png`
+* ISO-Badges: `ISOOfficer.png`, `ISOAuditor.png`

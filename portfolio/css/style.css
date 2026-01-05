@@ -655,22 +655,33 @@ section {
     line-height: 1.5;
 }
 
+/* Container für Prompt und Input */
 .terminal-input-line {
-    padding: 0 20px 20px 20px;
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertikale Zentrierung von Label und Input */
+    padding: 0 20px 20px 20px;
 }
 
-.terminal-prompt { color: #00ddb3; margin-right: 12px; white-space: nowrap; font-weight: bold; }
+/* Das neue Label-Element (ehemals span) */
+.terminal-prompt {
+    color: var(--color-primary);
+    margin-right: 12px;
+    white-space: nowrap; /* Verhindert Zeilenumbruch des Prompts */
+    font-weight: bold;
+    cursor: text; /* Signalisiert, dass das Klicken den Fokus setzt */
+    display: inline-block;
+}
 
+/* Das Input-Feld */
 #terminal-input {
+    flex: 1; /* Nimmt den gesamten verfügbaren Platz rechts vom Label ein */
     background: transparent;
     border: none;
     color: #fff;
     font-family: inherit;
     font-size: inherit;
-    width: 100%;
     outline: none;
+    caret-color: var(--color-primary); /* Farbe des blinkenden Cursors */
 }
 
 .terminal-line { margin-bottom: 5px; }

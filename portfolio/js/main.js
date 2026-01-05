@@ -1,7 +1,5 @@
 /* main.js - Maximilian Wagner */
 
-/* global marked */
-
 document.addEventListener("DOMContentLoaded", () => {
 
     // Observer für Scroll-Animationen (.fade-in)
