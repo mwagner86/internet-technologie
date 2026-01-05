@@ -8,59 +8,52 @@ Dieses Projekt ist das persönliche Web-Portfolio von Maximilian Wagner, Student
 
 Die Webseite fungiert als digitale Visitenkarte mit Fokus auf technischer Präzision und Informationssicherheit (ISMS).
 
-* **Design-Philosophie**: Ein minimalistischer Dark-Mode zur Reduzierung der kognitiven Belastung.
+* **Design-Philosophie**: Minimalistischer Dark-Mode zur Reduzierung der kognitiven Belastung.
 * **Interaktivität**:
 	* **Profilbild-Lightbox**: Einbindung von `fslightbox.js` zur vergrößerten Darstellung des Profilbildes.
-	* **Visual Feedback**: Interaktiver Hover-Effekt (Brightness-Filter) auf dem Profilbild zur Signalisierung der Klickbarkeit.
-* **Typografie**: Lokale Einbindung der Schriftarten `Poppins` (Headings) und `Inter` (Body) zur Gewährleistung der DSGVO-Konformität.
+	* **Interaktives Terminal**: JS-basierte Shell-Simulation (`MW-OS`) auf der Startseite mit automatisiertem Sicherheits-Scan. Unterstützt Befehle wie `iso`, `tisax` und `status`.
 
 ---
 
-## 2. Technologie-Stack & Sicherheits-Features
+## 2. Performance & Bildoptimierung
 
-### Web-Technologien
-* **HTML5 & CSS3**: Nutzung von semantischen Tags sowie CSS Grid und Flexbox für ein vollständig responsives Layout.
-* **Vanilla JavaScript (Client-side Includes)**: Realisierung des DRY-Prinzips durch ein modulares System. Komponenten (Header, Footer, Content) werden via `fetch`-API dynamisch geladen.
-* **Interaktives Terminal**: JS-basierte Shell-Simulation (`MW-OS`) auf der Startseite mit automatisiertem Sicherheits-Scan beim Initialisieren. Unterstützt Befehle wie `iso`, `tisax` und `status`.
-* **Markdown-Integration**: Nutzung von `marked.min.js` zum Rendern dieser Dokumentation.
+Zur Optimierung der Ladezeiten und Einhaltung von Web-Performance-Standards werden moderne Bildformate und responsive Techniken eingesetzt.
 
-### Security & Hardening
+* **Format**: Alle Bildressourcen wurden in das **WebP-Format** konvertiert, um eine hohe Kompression bei minimalem Qualitätsverlust zu erzielen.
+* **Responsive Images**: Einsatz des `srcset`-Attributs zur Bereitstellung verschiedener Auflösungen:
+	* Desktop/Lightbox: `profilbild-800.webp` (800px)
+	* Mobile: `profilbild-400.webp` (400px)
+* **Browser-Steuerung**: Nutzung von `sizes` und `loading="lazy"` zur Steuerung des Browser-Verhaltens und zur Reduzierung des initialen Payloads.
+
+---
+
+## 3. Security & De-indexing
+
+Ein wesentlicher Fokus liegt auf der Kontrolle über die Sichtbarkeit und den Schutz technischer Ressourcen.
+
+* **Search Engine De-indexing**: Die Webseite ist explizit von der Indizierung in Suchmaschinen ausgeschlossen.
+	* **robots.txt**: Konfiguration `Disallow: /` unterbindet das Crawling durch automatisierte Bots.
+	* **Meta-Tags**: Einsatz von `<meta name="robots" content="noindex, nofollow">` in allen HTML-Dateien als sekundäre Schutzmaßnahme.
 * **Kontaktformular-Schutz**:
-	* **Honeypot-Verfahren**: Abwehr automatisierter Bots.
+	* **Honeypot-Verfahren**: Abwehr automatisierter Spam-Bots.
 	* **Rate-Limiting**: Client-seitige Sperre via `localStorage` (60s Cooldown).
-	* **XSS-Protection**: Konsequente Nutzung von `textContent` zur Vermeidung von DOM-basiertem Cross-Site-Scripting.
-* **Datenschutz**: Verzicht auf externe CDN-Ressourcen; alle Bibliotheken und Assets werden lokal gehostet.
+* **XSS-Protection**: Konsequente Nutzung der `textContent`-Property zur Vermeidung von DOM-basiertem Cross-Site-Scripting.
 
 ---
 
-## 3. Projektstruktur
+## 4. Projektstruktur
 
-* **`_includes/`**: Modulare HTML-Fragmente (`_header.html`, `_about-content.html`, `_terminal.html`, `_legal.html` etc.).
-* **`css/`**: Zentrales Stylesheet `style.css` und lokale Schriftarten.
+* **`_includes/`**: Modulare HTML-Fragmente (Header, Footer, Terminal, Legal etc.).
+* **`css/`**: Zentrales Stylesheet `style.css` inklusive Responsive Design und lokaler Fonts.
 * **`js/`**: Anwendungslogik `main.js` sowie Bibliotheken `marked.min.js` und `fslightbox.js`.
-* **`images/`**: Bildressourcen, unterteilt in Zertifikats-Badges, Projektscreenshots und Favicons.
+* **`images/`**: Optimierte WebP-Ressourcen für Zertifikate, Projekte und Profil.
 
 ---
 
-## 4. Deployment & Installation
+## 5. Deployment & Tools
 
-Das Projekt ist für den Betrieb in einer containerisierten Umgebung optimiert.
+Das Projekt ist für den Betrieb in containerisierten Umgebungen (Docker/Nginx) optimiert.
 
-1.  **Voraussetzungen**: Docker und Docker Compose.
-2.  **Starten**:
-	```bash
-	docker-compose up -d
-	```
-	Die Auslieferung erfolgt standardmäßig über einen Nginx-Container auf Port 80.
-
----
-
-## 5. Quellen & Assets
-
-### Fremdcode
-* **`marked.min.js`**: Markdown-Parser.
-* **`fslightbox.js`**: Lightbox-Komponente.
-
-### KI-generierte Ressourcen
-* **Zertifikats-Badges**: Badges für "TÜV ISO 27001 Officer" und "TÜV ISO 27001 Auditor" in der Roadmap-Sektion.
-* **Hintergrundbild**: Das globale Hintergrundbild (`background_placeholder.png`) wurde mittels KI generiert.
+* **Image Processing**: Generierung der Bildvarianten mittels ImageMagick:
+  `magick convert input -resize 400 -quality 85 output.webp`
+* **Markdown Rendering**: Dynamische Anzeige der Dokumentation über `readme.html` mittels `marked.min.js`.
