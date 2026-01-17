@@ -12,6 +12,7 @@ Die Webseite fungiert als digitale Visitenkarte mit Fokus auf technischer Präzi
 * **Interaktivität**:
 	* **Profilbild-Lightbox**: Einbindung von `fslightbox.js` zur vergrößerten Darstellung des Profilbildes.
 	* **Interaktives Terminal**: JS-basierte Shell-Simulation (`MW-OS`) auf der Startseite mit automatisiertem Sicherheits-Scan. Unterstützt Befehle wie `iso`, `tisax` und `status`.
+	* **Technische Detailseiten**: Tiefenanalyse von Projekten (z. B. Cub3D) inklusive mathematischer Formeldarstellung mittels **MathJax** zur Visualisierung technischer Konzepte wie der Fischaugen-Korrektur.
 
 ---
 
@@ -20,6 +21,8 @@ Die Webseite fungiert als digitale Visitenkarte mit Fokus auf technischer Präzi
 Zur Optimierung der Ladezeiten und Einhaltung von Web-Performance-Standards werden moderne Bildformate und responsive Techniken eingesetzt.
 
 * **Format**: Alle Bildressourcen wurden in das **WebP-Format** konvertiert, um eine hohe Kompression bei minimalem Qualitätsverlust zu erzielen.
+* **Batch-Processing**: Konvertierung von PNG-Ressourcen mittels FFmpeg:
+  `ffmpeg -i input.png -q:v 80 output.webp`
 * **Responsive Images**: Einsatz des `srcset`-Attributs zur Bereitstellung verschiedener Auflösungen:
 	* Desktop/Lightbox: `profilbild-800.webp` (800px)
 	* Mobile: `profilbild-400.webp` (400px)
@@ -41,12 +44,15 @@ Ein wesentlicher Fokus liegt auf der Kontrolle über die Sichtbarkeit und den Sc
 
 ---
 
-## 4. Projektstruktur
+## 4. Projektstruktur & Modularität
+
+Die Architektur unterstützt eine saubere Trennung von Inhalten und Logik sowie die Skalierbarkeit durch Unterverzeichnisse.
 
 * **`_includes/`**: Modulare HTML-Fragmente (Header, Footer, Terminal, Legal etc.).
-* **`css/`**: Zentrales Stylesheet `style.css` inklusive Responsive Design und lokaler Fonts.
-* **`js/`**: Anwendungslogik `main.js` sowie Bibliotheken `marked.min.js` und `fslightbox.js`.
-* **`images/`**: Optimierte WebP-Ressourcen für Zertifikate, Projekte und Profil.
+* **`projects/`**: Unterverzeichnis für detaillierte Projektdokumentationen.
+* **Path-Management**: Einsatz von `window.APP_CONFIG.basePath` in der `main.js`, um Fragmente und Ressourcen dynamisch über verschiedene Verzeichnistiefen hinweg korrekt zu laden und Links in Fragmenten automatisch anzupassen.
+* **`css/`**: Zentrales Stylesheet `style.css` inklusive Responsive Design, Highlight-Effekten für Projektkarten und lokaler Fonts.
+* **`js/`**: Anwendungslogik `main.js` sowie Bibliotheken `marked.min.js`, `fslightbox.js` und **MathJax** für technisches Rendering.
 
 ---
 
@@ -56,6 +62,7 @@ Das Projekt ist für den Betrieb in containerisierten Umgebungen (Docker/Nginx) 
 
 * **Image Processing**: Generierung der Bildvarianten mittels ImageMagick:
   `magick convert input -resize 400 -quality 85 output.webp`
+* **Mathematical Rendering**: Clientseitiges Rendering komplexer Formeln (z. B. DDA-Algorithmus) durch MathJax.
 * **Markdown Rendering**: Dynamische Anzeige der Dokumentation über `readme.html` mittels `marked.min.js`.
 
 ## KI-Unterstützung & Attribution

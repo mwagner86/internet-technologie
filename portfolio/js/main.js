@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     return res.text();
                 })
                 .then(data => {
-                    // Korrektur relativer href- und src-Attribute in Fragmenten für Unterseiten
                     if (projectBase) {
                         data = data.replace(/href="(?!http|#)([^"]+)"/g, `href="${projectBase}$1"`);
                         data = data.replace(/src="(?!http|#)([^"]+)"/g, `src="${projectBase}$1"`);
