@@ -2,6 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Extraktion des Basispfads für Unterseiten (aus window.APP_CONFIG)
+    const projectBase = window.APP_CONFIG?.basePath || '';
+
     // Observer für Scroll-Animationen (.fade-in)
     const initializeFadeInAnimation = () => {
         const elements = document.querySelectorAll('.fade-in');
@@ -16,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         elements.forEach(el => observer.observe(el));
     };
 
-    // Zentrale Ladefunktion für HTML-Fragmente
+    // Zentrale Ladefunktion für HTML-Fragmente inklusive Pfad-Korrektur
     const loadHTML = (id, path, callback) => {
         const el = document.getElementById(id);
         if (el) {
@@ -26,6 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     return res.text();
                 })
                 .then(data => {
+                    // Korrektur relativer href- und src-Attribute in Fragmenten für Unterseiten
+                    if (projectBase) {
+                        data = data.replace(/href="(?!http|#)([^"]+)"/g, `href="${projectBase}$1"`);
+                        data = data.replace(/src="(?!http|#)([^"]+)"/g, `src="${projectBase}$1"`);
+                    }
                     el.innerHTML = data;
                     if (callback) callback();
                 })
@@ -37,7 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const setActiveNavLink = () => {
         const page = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.main-nav a').forEach(link => {
-            if (link.getAttribute('href') === page) link.classList.add('active');
+            // Vergleich gegen den bereinigten Dateinamen
+            const href = link.getAttribute('href').split('/').pop();
+            if (href === page) link.classList.add('active');
         });
     };
 
@@ -96,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
             delete data.honeypot;
             localStorage.setItem('contactFormData', JSON.stringify(data));
             localStorage.setItem('last_submission_ts', String(now));
-            window.location.href = 'success.html';
+            window.location.href = projectBase + 'success.html';
         });
     };
 
@@ -122,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const renderMarkdown = () => {
         const container = document.getElementById('markdown-content');
         if (container && typeof window.marked !== 'undefined') {
-            fetch('README.md')
+            fetch(projectBase + 'README.md')
                 .then(res => res.text())
                 .then(md => {
                     container.innerHTML = window.marked.parse(md);
@@ -133,16 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Interaktives Terminal mit Start-Scan
-
-    /**
-     * TERMINAL SIMULATION LOGIC (MW-OS)
-     * --------------------------------------------------------------------------
-     * AI-GENERATED COMPONENT: This terminal logic, including command processing,
-     * security scan simulation, and response handling, was developed with the
-     * assistance of Google Gemini 1.5 Pro.
-     * --------------------------------------------------------------------------
-     */
-
     const initializeTerminal = () => {
         const input = document.getElementById('terminal-input');
         const output = document.getElementById('terminal-output');
@@ -214,32 +214,40 @@ document.addEventListener("DOMContentLoaded", () => {
         runStartupScan().catch(() => console.error("Terminal Scan failed"));
     };
 
-    // INITIALISIERUNG
+    // INITIALISIERUNG mit Berücksichtigung des Basispfads
 
-    loadHTML('header-placeholder', '_includes/_header.html', () => {
+    loadHTML('header-placeholder', projectBase + '_includes/_header.html', () => {
         setActiveNavLink();
         initializeMobileMenu();
     });
 
-    loadHTML('about-content-placeholder', '_includes/_about-content.html', initializeFadeInAnimation);
-    loadHTML('projects-gallery-placeholder', '_includes/_projects-gallery.html', initializeFadeInAnimation);
-    loadHTML('certificates-gallery-placeholder', '_includes/_certificates-gallery.html', initializeFadeInAnimation);
+    if (document.getElementById('about-content-placeholder')) {
+        loadHTML('about-content-placeholder', projectBase + '_includes/_about-content.html', initializeFadeInAnimation);
+    }
+
+    if (document.getElementById('projects-gallery-placeholder')) {
+        loadHTML('projects-gallery-placeholder', projectBase + '_includes/_projects-gallery.html', initializeFadeInAnimation);
+    }
+
+    if (document.getElementById('certificates-gallery-placeholder')) {
+        loadHTML('certificates-gallery-placeholder', projectBase + '_includes/_certificates-gallery.html', initializeFadeInAnimation);
+    }
 
     if (document.getElementById('terminal-placeholder')) {
-        loadHTML('terminal-placeholder', '_includes/_terminal.html', () => {
+        loadHTML('terminal-placeholder', projectBase + '_includes/_terminal.html', () => {
             initializeTerminal();
             initializeFadeInAnimation();
         });
     }
 
     if (document.getElementById('contact-form-placeholder')) {
-        loadHTML('contact-form-placeholder', '_includes/_contact-form.html', () => {
+        loadHTML('contact-form-placeholder', projectBase + '_includes/_contact-form.html', () => {
             initializeContactForm();
             initializeFadeInAnimation();
         });
     }
 
-    loadHTML('footer-placeholder', '_includes/_footer.html');
+    loadHTML('footer-placeholder', projectBase + '_includes/_footer.html', updateFooterYear);
 
     if (document.getElementById('success-data-display')) displaySuccessData();
     if (document.getElementById('markdown-content')) renderMarkdown();

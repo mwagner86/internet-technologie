@@ -6,6 +6,9 @@
     <title>Impressum - Maximilian Wagner Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <meta name="robots" content="noindex, follow">
+    <script>
+        window.APP_CONFIG = { basePath: '' };
+    </script>
 </head>
 <body>
 <div id="header-placeholder"></div>
@@ -21,16 +24,17 @@
             <h2>Angaben gemäß § 5 DDG</h2>
             <p>
                 Maximilian Wagner<br>
-                [Ihre Straße & Hausnummer]<br>
-                [PLZ & Ort]
+                Musterstasse 4<br>
+                12345 Musterstadt
             </p>
-
+            <br>
             <h3>Kontakt</h3>
             <p>
-                E-Mail: [Ihre E-Mail-Adresse]<br>
-                Telefon: [Optional: Ihre Telefonnummer]
+                E-Mail: maximilian.wagner@th-brandenburg.de<br>
+                Telefon: 01xx 123456
             </p>
         </section>
+
 
         <section class="legal-section">
             <h2>Redaktionell verantwortlich</h2>
@@ -56,13 +60,8 @@
     </div>
 </main>
 
-<div id="footer-placeholder"></div>
+<footer class="main-footer-content" id="footer-placeholder"></footer>
 
 <script src="js/main.js"></script>
-<script>
-    // Laden von Header und Footer
-    fetch('_includes/_header.html').then(res => res.text()).then(data => document.getElementById('header-placeholder').innerHTML = data);
-    fetch('_includes/_footer.html').then(res => res.text()).then(data => document.getElementById('footer-placeholder').innerHTML = data);
-</script>
 </body>
 </html>

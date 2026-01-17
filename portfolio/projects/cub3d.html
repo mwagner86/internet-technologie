@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cub3D Detail - Maximilian Wagner Portfolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script>
+        window.APP_CONFIG = { basePath: '../' };
+    </script>
+
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+<main class="section project-detail">
+    <div class="container">
+        <nav class="project-nav">
+            <a href="../projects.html" class="back-link">← Zurück zur Übersicht</a>
+        </nav>
+
+        <div class="section-header" style="margin-top: 2rem;">
+            <h1>Cub3D: Raycasting Engine</h1>
+            <p>Technische Tiefenanalyse einer 3D-Visualisierung in reinem C</p>
+        </div>
+
+        <div class="project-detail-grid">
+            <div class="detail-text">
+                <h3>Technische Übersicht</h3>
+                <p>Cub3D ist eine Hommage an die Anfänge der 3D-Grafik, implementiert im Rahmen des 42-Curriculums. Das Ziel war die Entwicklung einer funktionalen Engine ohne moderne Grafik-APIs. Der gesamte Rendering-Prozess findet auf der CPU statt, wobei die Grafik über die <strong>MiniLibX</strong> direkt in den Bildpuffer geschrieben wird.</p>
+
+                <h3>Features & Implementierung</h3>
+                <ul>
+                    <li><strong>DDA-Algorithmus:</strong> Effiziente Berechnung von Strahl-Wand-Kollisionen zur Bestimmung der Wanddistanz ohne Performance-Verlust.</li>
+                    <li><strong>Texture Mapping:</strong> Projektion von Texturen unter Berücksichtigung der exakten Trefferkoordinate auf der Wandfläche.</li>
+                    <li><strong>Kollisionsabfrage:</strong> Implementierung einer gleitenden Bewegung entlang von Wänden durch Vektoranalyse.</li>
+                    <li><strong>Performance:</strong> Minimierung von CPU-Zyklen durch Bit-Shifting bei Farbberechnungen und optimierte Render-Loops.</li>
+                </ul>
+
+                <h3>Mathematische Grundlagen</h3>
+                <p>
+                    Zur Vermeidung des Fischaugen-Effekts wird die korrigierte Wandhöhe \( H \) basierend auf der
+                    Distanz \( h \) und dem relativen Winkel \( \beta \) berechnet:
+                </p>
+                <div class="formula-display">
+                    \[ H = \frac{h}{\cos(\beta)} \]
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <a href="https://github.com/mwagner86/cub3d" target="_blank" class="button">Quellcode auf GitHub</a>
+                </div>
+            </div>
+
+            <div class="detail-media">
+                <h3>Visual Showcase</h3>
+                <div class="screenshot-gallery">
+                    <a data-fslightbox="gallery" href="../images/projects/cub3d-1.webp" class="gallery-item main">
+                        <img src="../images/projects/cub3d-1.webp" alt="Cub3D Rendering" class="project-img">
+                    </a>
+                    <div class="thumb-grid">
+                        <a data-fslightbox="gallery" href="../images/projects/cub3d-map.webp">
+                            <img src="../images/projects/cub3d-map.webp" alt="Cub3D Map Config" class="project-img">
+                        </a>
+                        <a data-fslightbox="gallery" href="../images/projects/cub3d-textures.webp">
+                            <img src="../images/projects/cub3d-textures.webp" alt="Texture Showcase" class="project-img">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="main-footer-content" id="footer-placeholder"></footer>
+
+<script src="../js/fslightbox.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

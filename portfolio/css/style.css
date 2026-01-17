@@ -60,6 +60,7 @@
     --color-text: #f0f0f0;
     --color-primary: #00ddb3;
     --color-secondary: #333333;
+    --color-muted: #a0a0a0;
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
@@ -204,7 +205,7 @@ section {
 .main-nav a:not(.button) {
     color: var(--color-text);
     position: relative;
-    display: inline-block; /* Begrenzt die Breite auf den Textinhalt */
+    display: inline-block;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -241,13 +242,16 @@ section {
 /* Kontakt-Button Style & Lesbarkeit */
 .button {
     background-color: var(--color-primary);
-    color: var(--color-background) !important; /* Fixiert dunklen Text auf hellem Grund */
+    color: var(--color-background) !important;
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     font-weight: 700;
     display: inline-block;
     transition: transform 0.2s ease, background-color 0.2s ease;
     border: none;
+    /* Fix: Liegt über dem stretched-link der Card */
+    position: relative;
+    z-index: 2;
 }
 
 .button:hover {
@@ -264,6 +268,25 @@ section {
     padding: 1.5rem;
     height: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    /* Fix: Anker für stretched-link */
+    position: relative;
+}
+
+/* Spezielle Highlight-Card (z.B. Cub3D) */
+.project-card.highlight {
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 0 20px rgba(0, 221, 179, 0.15);
+}
+
+/* Stretched Link Pattern zur Abdeckung der gesamten Box */
+.stretched-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .project-card-link, .nav-card-link {
@@ -295,6 +318,9 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    /* Fix: Tech-Stack muss ebenfalls über dem stretched-link liegen, falls interaktiv */
+    position: relative;
+    z-index: 2;
 }
 
 .tech-stack li {
@@ -475,6 +501,96 @@ section {
     color: var(--color-text);
     border-bottom: 1px solid var(--color-secondary);
     padding-bottom: 0.5rem;
+}
+/* ========================================================================== */
+/* 6.1 PROJECT DETAIL CUB3D                                           */
+/* ========================================================================== */
+
+.project-detail .back-link {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.project-detail .back-link:hover {
+    color: var(--color-primary);
+}
+
+.project-detail-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: start;
+}
+
+.detail-text h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.detail-text ul {
+    padding-left: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+.detail-text li {
+    margin-bottom: 0.8rem;
+}
+
+/* Screenshot Inszenierung */
+.screenshot-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gallery-item.main img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #444;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.thumb-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.project-img {
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-img:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 992px) {
+    .project-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Fix für MathJax Rendering im Dark-Mode */
+.formula-display {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    text-align: center;
+}
+
+mjx-container {
+    color: var(--color-primary) !important; /* Formeln in Akzentfarbe */
+    font-size: 1.2rem !important;
 }
 
 /* ========================================================================== */
