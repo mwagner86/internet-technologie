@@ -524,7 +524,7 @@ section {
     align-items: start;
 }
 
-.detail-text h3 {
+.detail-text h2 {
     color: var(--color-primary);
     margin-bottom: 1rem;
 }
