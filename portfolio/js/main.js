@@ -229,13 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (document.getElementById('legal-placeholder')) {
-        loadHTML('legal-placeholder', '_includes/_legal.html', () => {
-            updateFooterYear();
-            initializeFadeInAnimation();
-        });
-    }
-
     loadHTML('footer-placeholder', '_includes/_footer.html');
 
     if (document.getElementById('success-data-display')) displaySuccessData();

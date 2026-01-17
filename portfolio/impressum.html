@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - Maximilian Wagner Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="robots" content="noindex, follow">
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+<main class="section">
+    <div class="container">
+        <div class="section-header">
+            <h1>Impressum</h1>
+            <p>Rechtliche Informationen gemäß § 5 DDG</p>
+        </div>
+
+        <section class="legal-section">
+            <h2>Angaben gemäß § 5 DDG</h2>
+            <p>
+                Maximilian Wagner<br>
+                [Ihre Straße & Hausnummer]<br>
+                [PLZ & Ort]
+            </p>
+
+            <h3>Kontakt</h3>
+            <p>
+                E-Mail: [Ihre E-Mail-Adresse]<br>
+                Telefon: [Optional: Ihre Telefonnummer]
+            </p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Redaktionell verantwortlich</h2>
+            <p>
+                Maximilian Wagner<br>
+                [Anschrift wie oben]
+            </p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Haftungsausschluss (Disclaimer)</h2>
+            <h3>Haftung für Inhalte</h3>
+            <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
+
+            <h3>Haftung für Links</h3>
+            <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Urheberrecht</h2>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+        </section>
+    </div>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/main.js"></script>
+<script>
+    // Laden von Header und Footer
+    fetch('_includes/_header.html').then(res => res.text()).then(data => document.getElementById('header-placeholder').innerHTML = data);
+    fetch('_includes/_footer.html').then(res => res.text()).then(data => document.getElementById('footer-placeholder').innerHTML = data);
+</script>
+</body>
+</html>
