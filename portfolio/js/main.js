@@ -133,6 +133,16 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Interaktives Terminal mit Start-Scan
+
+    /**
+     * TERMINAL SIMULATION LOGIC (MW-OS)
+     * --------------------------------------------------------------------------
+     * AI-GENERATED COMPONENT: This terminal logic, including command processing,
+     * security scan simulation, and response handling, was developed with the
+     * assistance of Google Gemini 1.5 Pro.
+     * --------------------------------------------------------------------------
+     */
+
     const initializeTerminal = () => {
         const input = document.getElementById('terminal-input');
         const output = document.getElementById('terminal-output');
@@ -204,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
         runStartupScan().catch(() => console.error("Terminal Scan failed"));
     };
 
-    // --- INITIALISIERUNG ---
+    // INITIALISIERUNG
 
     loadHTML('header-placeholder', '_includes/_header.html', () => {
         setActiveNavLink();
