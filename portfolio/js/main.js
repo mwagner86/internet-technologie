@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const setActiveNavLink = () => {
         const page = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.main-nav a').forEach(link => {
-            // Vergleich gegen den bereinigten Dateinamen
             const href = link.getAttribute('href').split('/').pop();
             if (href === page) link.classList.add('active');
         });
@@ -81,8 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
-            if (data.honeypot && data.honeypot.length > 0) return;
-
             const lastSub = localStorage.getItem('last_submission_ts');
             const now = Date.now();
             if (lastSub && (now - parseInt(lastSub) < 60000)) {
@@ -102,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            delete data.honeypot;
             localStorage.setItem('contactFormData', JSON.stringify(data));
             localStorage.setItem('last_submission_ts', String(now));
             window.location.href = projectBase + 'success.html';
@@ -212,8 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         runStartupScan().catch(() => console.error("Terminal Scan failed"));
     };
-
-    // INITIALISIERUNG mit Berücksichtigung des Basispfads
 
     loadHTML('header-placeholder', projectBase + '_includes/_header.html', () => {
         setActiveNavLink();
